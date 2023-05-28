@@ -4,12 +4,12 @@
     <title>My first post!</title>
     <url>/2023/05/29/hello-world/</url>
     <content><![CDATA[<h2 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu"></a>Giới thiệu</h2><p>Xin chào! Đây là blog thứ… n của mình :D! Vẫn như cũ là lập ra để viết nhật ký cũng như viết những thứ linh rồi đăng lên.<br>Thường thì nó sẽ không có ý nghĩa gì hết. Chỉ là viết cho vui thôi! :3</p>
-<h3 id="So-luoc-ve-Blog"><a href="#So-luoc-ve-Blog" class="headerlink" title="Sơ lược về Blog"></a>Sơ lược về Blog</h3><p>Được tạo bằng <a href="https://hexo.io/">Hexo</a> và sử dụng theme <a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a> (Bướm) trên nền tảng Github Pages.</p>
+<h3 id="So-luoc-ve-Blog"><a href="#So-luoc-ve-Blog" class="headerlink" title="Sơ lược về Blog"></a>Sơ lược về Blog</h3><p>Được tạo bằng <a href="https://hexo.io/">Hexo</a> và sử dụng theme <a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a> (Bướm) trên nền tảng <mark class="hl-label default">Github-Pages</mark> .</p>
 <h3 id="Cach-thuc-thuc-hien"><a href="#Cach-thuc-thuc-hien" class="headerlink" title="Cách thức thực hiện"></a>Cách thức thực hiện</h3><p>Mình đã cho nguồn hết rồi :)) bao gồm cả link (ở footer của trang). Chỉ cần vào đọc những docs của tác giả + với thực hành thì bạn sẽ có được 1 trang như mình hehe</p>
 <p>TMI:</p>
 <ul>
 <li>Mình làm nó trên con laptop đời cũ: (<mark class="hl-label default">Thinkpad-x260</mark> )</li>
-<li>Mất tầm 2 ngày để hoàn thành bố cục: font, image, nội dung, ngôn ngữ,..</li>
+<li>Mất tầm 2 ngày để hoàn thành bố cục: font, images, nội dung, ngôn ngữ,..</li>
 </ul>
 <h2 id="Tinh-nang"><a href="#Tinh-nang" class="headerlink" title="Tính năng"></a>Tính năng</h2><p>Mình đã dịch ngôn ngữ của theme này từ tiếng Anh sang tiếng Việt xD và nó cũng không khó lắm (chỉ có vài dòng thôi).</p>
 <div class="note warning disabled"><p>Mục đích nói ra không phải để khoẻ trình tiếng Anh hay gì, mà chỉ để các bạn biết theme này không hỗ trợ tiếng Việt.<br>Nên là nếu các bạn muốn tiếng Việt thì các bạn phải tự làm.</p>

@@ -28,10 +28,15 @@ $(function()
 		url: "Musics/ghệ iu dấu của em ơi - tlinh.mp3",
 		picture: "cover/1.jpg"
 },{
-		artist: "newjeans",
-		name: "attention",
-		url: "Musics/NewJeans - Attention.mp3",
+		artist: "the weeknd",
+		name: "reminder",
+		url: "Musics/The Weeknd - Reminder.mp3",
 		picture: "cover/2.jpg"
+},{
+		artist: "interworld",
+		name: "metamorphosis",
+		url: "Musics/METAMORPHOSIS.mp3",
+		picture: "cover/3.jpg"
 },
    ];
 	function shuffle(a) {
