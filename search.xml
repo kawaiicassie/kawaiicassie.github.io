@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World | My first post!</title>
+    <title>My first post!</title>
     <url>/2023/05/29/hello-world/</url>
     <content><![CDATA[<h2 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu"></a>Giới thiệu</h2><p>Xin chào! Đây là blog thứ… n của mình :D! Vẫn như cũ là lập ra để viết nhật ký cũng như viết những thứ linh rồi đăng lên.<br>Thường thì nó sẽ không có ý nghĩa gì hết. Chỉ là viết cho vui thôi! :3</p>
 <h3 id="So-luoc-ve-Blog"><a href="#So-luoc-ve-Blog" class="headerlink" title="Sơ lược về Blog"></a>Sơ lược về Blog</h3><p>Được tạo bằng <a href="https://hexo.io/">Hexo</a> và sử dụng theme <a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a> (Bướm) trên nền tảng Github Pages.</p>
