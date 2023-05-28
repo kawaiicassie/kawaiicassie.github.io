@@ -3,28 +3,28 @@
   <entry>
     <title>My first post!</title>
     <url>/2023/05/29/hello-world/</url>
-    <content><![CDATA[<h2 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu"></a>Giới thiệu</h2><p>Xin chào! Đây là blog thứ… n của mình :D! Vẫn như cũ là lập ra để viết nhật ký cũng như viết những thứ linh rồi đăng lên.<br>Thường thì nó sẽ không có ý nghĩa gì hết. Chỉ là viết cho vui thôi! :3</p>
-<h3 id="So-luoc-ve-Blog"><a href="#So-luoc-ve-Blog" class="headerlink" title="Sơ lược về Blog"></a>Sơ lược về Blog</h3><p>Được tạo bằng <a href="https://hexo.io/">Hexo</a> và sử dụng theme <a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a> (Bướm) trên nền tảng <mark class="hl-label default">Github-Pages</mark> .</p>
-<h3 id="Cach-thuc-thuc-hien"><a href="#Cach-thuc-thuc-hien" class="headerlink" title="Cách thức thực hiện"></a>Cách thức thực hiện</h3><p>Mình đã cho nguồn hết rồi :)) bao gồm cả link (ở footer của trang). Chỉ cần vào đọc những docs của tác giả + với thực hành thì bạn sẽ có được 1 trang như mình hehe</p>
+    <content><![CDATA[<h2 id="Gioi-thieu"><a href="#Gioi-thieu" class="headerlink" title="Giới thiệu"></a>Giới thiệu</h2><p>Xin chào! Đây là blog thứ… n của mình 😅! Vẫn như cũ là lập ra để viết nhật ký cũng như viết những thứ linh rồi đăng lên.<br>Thường thì nó sẽ không có ý nghĩa gì hết. Chỉ là viết cho vui thôi! 😚</p>
+<h3 id="So-luoc-ve-Blog"><a href="#So-luoc-ve-Blog" class="headerlink" title="Sơ lược về Blog"></a>Sơ lược về Blog</h3><p>Được tạo bằng <a href="https://hexo.io/">Hexo</a> và sử dụng theme <a href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a> (Bướm) trên nền tảng <mark class="hl-label default">Github-Pages</mark> </p>
+<h3 id="Cach-thuc-thuc-hien"><a href="#Cach-thuc-thuc-hien" class="headerlink" title="Cách thức thực hiện"></a>Cách thức thực hiện</h3><p>Mình đã cho nguồn hết rồi 😂 bao gồm cả link (ở footer của trang). Chỉ cần vào đọc những docs của tác giả + với thực hành thì bạn sẽ có được 1 trang như mình 😁</p>
 <p>TMI:</p>
 <ul>
-<li>Mình làm nó trên con laptop đời cũ: <mark class="hl-label default">Thinkpad-x260</mark> </li>
-<li>Mất tầm 2 ngày để hoàn thành bố cục: font, images, nội dung, ngôn ngữ,..</li>
+<li>Mình làm nó trên con laptop đời cũ: <mark class="hl-label default">Thinkpad-x260</mark>  💻</li>
+<li>Mất tầm 2 ngày để hoàn thành bố cục: font, images, nội dung, ngôn ngữ,.. 😌</li>
 </ul>
-<h2 id="Tinh-nang"><a href="#Tinh-nang" class="headerlink" title="Tính năng"></a>Tính năng</h2><p>Mình đã dịch ngôn ngữ của theme này từ tiếng Anh sang tiếng Việt xD và nó cũng không khó lắm (chỉ có vài dòng thôi).</p>
-<div class="note warning disabled"><p>Mục đích nói ra không phải để khoẻ trình tiếng Anh hay gì, mà chỉ để các bạn biết theme này không hỗ trợ tiếng Việt.<br>Nên là nếu các bạn muốn tiếng Việt thì các bạn phải tự làm.</p>
+<h2 id="Tinh-nang"><a href="#Tinh-nang" class="headerlink" title="Tính năng"></a>Tính năng</h2><p>Mình đã dịch ngôn ngữ của theme này từ tiếng Anh sang tiếng Việt 😋 và nó cũng không khó lắm chỉ có vài dòng thôi).</p>
+<div class="note warning disabled"><p>Mục đích nói ra không phải để khoẻ trình tiếng Anh hay gì, mà chỉ để các bạn biết theme này không hỗ trợ tiếng Việt. Nên là nếu các bạn muốn tiếng Việt thì các bạn phải tự làm.</p>
 </div>
 
 <h3 id="Read-mode"><a href="#Read-mode" class="headerlink" title="Read mode"></a>Read mode</h3><p>Chỉ hoạt động khi bạn đọc một bài post nào đấy trên trang.</p>
-<p>Tính năng này chủ yếu sẽ loại bỏ những thứ không cần thiết như: Info card, Post header,… chỉ để tập trung đọc nội dung thôi.<br>Thường là dùng để đọc truyện hay đọc tiểu thuyết (cái này mình cũng có viết nữa nhé nhưng maybe thoy vì mình lười hehe)</p>
+<p>Tính năng này chủ yếu sẽ loại bỏ những thứ không cần thiết như: Info card, Post header,… chỉ để tập trung đọc nội dung thôi.<br>Thường là dùng để đọc truyện hay đọc tiểu thuyết (cái này mình cũng có viết nữa nhé nhưng maybe thoy vì mình lười 😅)</p>
 <h3 id="Dark-mode"><a href="#Dark-mode" class="headerlink" title="Dark mode"></a>Dark mode</h3><p>Như tên gọi thì tính năng này dùng để chuyển sang chế độ ban đêm, để không phải mỏi mắt khi đọc.</p>
 <h3 id="Keo-dai-trang"><a href="#Keo-dai-trang" class="headerlink" title="Kéo dài trang"></a>Kéo dài trang</h3><p>Tính năng này dùng với mục đích là ẩn đi thanh thông tin (bên trái). Từ hai cột sang một cột (<mark class="hl-label green">2-col</mark>  to <mark class="hl-label green">1-col</mark> ) và ngược lại.</p>
-<h3 id="Binh-luan"><a href="#Binh-luan" class="headerlink" title="Bình luận"></a>Bình luận</h3><p>Tính năng này giống với <mark class="hl-label blue">read-mode</mark>  ở chỗ không hiện trên trang chủ mà chỉ hiện trong bài post. Dùng để cuộn xuông ô bình luận nhanh hơn xDD</p>
-<h3 id="Read-percent"><a href="#Read-percent" class="headerlink" title="Read percent"></a>Read percent</h3><p>Mình không biết diễn tả sao.. kiểu những số đó tượng trưng cho nội dung trên trang. Khi bạn kéo xuống 100% thì tính năng này tự động sẽ thành <mark class="hl-label purple">Back-to-Top</mark> .</p>
+<h3 id="Binh-luan"><a href="#Binh-luan" class="headerlink" title="Bình luận"></a>Bình luận</h3><p>Tính năng này giống với <mark class="hl-label blue">read-mode</mark>  ở chỗ không hiện trên trang chủ mà chỉ hiện trong bài post. Dùng để cuộn xuông ô bình luận nhanh hơn 🤣</p>
+<h3 id="Read-percent"><a href="#Read-percent" class="headerlink" title="Read percent"></a>Read percent</h3><p>Mình không biết diễn tả sao.. kiểu những số đó tượng trưng cho nội dung trên trang. Khi bạn kéo xuống 100% thì tính năng này tự động sẽ thành <mark class="hl-label purple">Back-to-Top</mark>  🤧</p>
 <h3 id="Back-to-Top"><a href="#Back-to-Top" class="headerlink" title="Back to Top"></a>Back to Top</h3><p>Như tên gọi thì nó dùng để cuộn lên đầu trang.</p>
-<h2 id="Ket-bai"><a href="#Ket-bai" class="headerlink" title="Kết bài"></a>Kết bài</h2><p>Okay bài giới thiệu tới đây thoai :3 chủ yếu là để khoe những tính năng tích hợp trên trang Blog thui :))<br>Đây dường như là bài giới thiệu dài nhất mà mình từng viết ấy nhỉ? Đa số toàn là vô vấn để chính luôn, chứ hong có tạo một bài dành riêng cho giới thiệu như thế này~~</p>
-<p>Nhân tiện như mọi khi thì mình sẽ show desktop khi đang viết bài này :3</p>
-<details class="toggle" ><summary class="toggle-button" style="">29/05/2023 Desktop</summary><div class="toggle-content"><p><img src="/img/posts/1.jpg" alt="Desktop Wallpaper"></p>
+<h2 id="Ket-bai"><a href="#Ket-bai" class="headerlink" title="Kết bài"></a>Kết bài</h2><p>Okay bài giới thiệu tới đây thoai 🙋 chủ yếu là để khoe những tính năng tích hợp trên trang Blog thui 😗<br>Đây dường như là bài giới thiệu dài nhất mà mình từng viết ấy nhỉ? Đa số toàn là vô vấn để chính luôn, chứ hong có tạo một bài dành riêng cho giới thiệu như thế này~~</p>
+<p>Nhân tiện như mọi khi thì mình sẽ show desktop khi đang viết bài này 😙</p>
+<details class="toggle"><summary class="toggle-button" style="">29/05/2023 Desktop</summary><div class="toggle-content"><p><img src="/img/posts/1.jpg" alt="Desktop Wallpaper"></p>
 </div></details>
 
 <p>Cám ơn các bạn đã đọc! Bái bai~</p>

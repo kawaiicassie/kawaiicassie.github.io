@@ -41,7 +41,7 @@ $(function()
    ];
 	function shuffle(a) {
 		var j, x, i;
-		for (i = a.length - 1; i > 0; i--) {
+		for (i = a.length - 1; i &gt; 0; i--) {
 			j = Math.floor(Math.random() * (i + 1));
 			x = a[i];
 			a[i] = a[j];
@@ -110,15 +110,15 @@ $(function()
 		ctMinutes = Math.floor(cM);
 		ctSeconds = Math.floor(seekLoc - ctMinutes * 60);
 		
-		if( (ctMinutes < 0) || (ctSeconds < 0) )
+		if( (ctMinutes &lt; 0) || (ctSeconds &lt; 0) )
 			return;
 		
-        if( (ctMinutes < 0) || (ctSeconds < 0) )
+        if( (ctMinutes &lt; 0) || (ctSeconds &lt; 0) )
 			return;
 		
-		if(ctMinutes < 10)
+		if(ctMinutes &lt; 10)
 			ctMinutes = '0'+ctMinutes;
-		if(ctSeconds < 10)
+		if(ctSeconds &lt; 10)
 			ctSeconds = '0'+ctSeconds;
         
         if( isNaN(ctMinutes) || isNaN(ctSeconds) )
@@ -162,14 +162,14 @@ $(function()
 		
 		playProgress = (audio.currentTime / audio.duration) * 100;
 		
-		if(curMinutes < 10)
+		if(curMinutes &lt; 10)
 			curMinutes = '0'+curMinutes;
-		if(curSeconds < 10)
+		if(curSeconds &lt; 10)
 			curSeconds = '0'+curSeconds;
 		
-		if(durMinutes < 10)
+		if(durMinutes &lt; 10)
 			durMinutes = '0'+durMinutes;
-		if(durSeconds < 10)
+		if(durSeconds &lt; 10)
 			durSeconds = '0'+durSeconds;
         
         if( isNaN(curMinutes) || isNaN(curSeconds) )
@@ -206,7 +206,7 @@ $(function()
         clearInterval(buffInterval);
         buffInterval = setInterval(function()
         { 
-            if( (nTime == 0) || (bTime - nTime) > 1000  )
+            if( (nTime == 0) || (bTime - nTime) &gt; 1000  )
                 albumArt.addClass('buffering');
             else
                 albumArt.removeClass('buffering');
@@ -229,7 +229,7 @@ $(function()
             currIndex = index;
         }
 
-        if( (currIndex > -1) && (currIndex < songs.length) )
+        if( (currIndex &gt; -1) &amp;&amp; (currIndex &lt; songs.length) )
         {
             if( flag == 0 )
                 i.attr('class','fa fa-play');
@@ -273,9 +273,9 @@ $(function()
         }
         else
         {
-            if (currIndex < 0) {
+            if (currIndex &lt; 0) {
                 currIndex = songs.length - 1;
-            } else if (currIndex > songs.length - 1) {
+            } else if (currIndex &gt; songs.length - 1) {
                 currIndex = 0;
             }
             selectTrack(2);
@@ -318,7 +318,7 @@ $(function()
     }
     
     function addSongList() {
-        songs.forEach((song, index) => {
+        songs.forEach((song, index) =&gt; {
             const songTemplate = 
             `<div class="song" id="song${index}">
                 <i class="fas fa-play"></i>
@@ -328,7 +328,7 @@ $(function()
             </div>`
 
             $("#list-song").append(songTemplate);
-            $('#song' + index).on('click', () => {
+            $('#song' + index).on('click', () =&gt; {
                 selectTrack(0, index);
                 playPause();
             });
