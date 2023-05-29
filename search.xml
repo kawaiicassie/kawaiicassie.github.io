@@ -36,12 +36,13 @@
   <entry>
     <title>Nghe nhạc cùng mình 🎵✨</title>
     <url>/posts/musics/</url>
-    <content><![CDATA[<h1 id="My-Playlist-💗"><a href="#My-Playlist-💗" class="headerlink" title="My Playlist 💗"></a>My Playlist 💗</h1><p>Have a nice day!</p>
-<div id="mplayer6533"></div>
+    <content><![CDATA[<h1 id="My-Playlist-💗"><a href="#My-Playlist-💗" class="headerlink" title="My Playlist 💗"></a>My Playlist 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
+</div>
+<div id="mplayer5923"></div>
 <script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
 <script>
     new cplayer({
-      element: document.getElementById('mplayer6533'),
+      element: document.getElementById('mplayer5923'),
          playlist: [
        {
            name: 'METAMORPHOSIS',
@@ -65,6 +66,11 @@
            artist: 'ロボ子さん',
            src: 'リルビ little bit - ロボ子さん.mp3',
            poster: 'リルビ little bit - ロボ子さん.jpg',
+       },{
+           name: 'アイドル',
+           artist: 'YOASOBI',
+           src: 'YOASOBI - アイドル.mp3',
+           poster: 'YOASOBI - アイドル.jpg',
        },{
            name: '強風オールバック',
            artist: 'さくらみこ Cover',
