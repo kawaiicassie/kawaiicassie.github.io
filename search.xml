@@ -33,4 +33,54 @@
         <tag>blog</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Nghe nhạc cùng mình 🎵✨</title>
+    <url>/posts/musics/</url>
+    <content><![CDATA[<h1 id="My-Playlist-💗"><a href="#My-Playlist-💗" class="headerlink" title="My Playlist 💗"></a>My Playlist 💗</h1><p>Have a nice day!</p>
+<div id="mplayer6533"></div>
+<script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
+<script>
+    new cplayer({
+      element: document.getElementById('mplayer6533'),
+         playlist: [
+       {
+           name: 'METAMORPHOSIS',
+           artist: 'InterWorld',
+           src: 'METAMORPHOSIS.mp3',
+           poster: 'METAMORPHOSIS.jpg',
+       },
+       {
+           name: 'Reminder',
+           artist: 'The Weeknd',
+           src: 'The Weeknd - Reminder.mp3',
+           poster: 'The Weeknd - Reminder.jpg',
+       },
+       {
+           name: 'ghệ iu dấu của em ơi',
+           artist: 'tlinh',
+           src: 'ghệ iu dấu của em ơi - tlinh.mp3',
+           poster: 'ghệ iu dấu của em ơi - tlinh.jpg',
+       },{
+           name: '『リルビ-little bit-』',
+           artist: 'ロボ子さん',
+           src: 'リルビ little bit - ロボ子さん.mp3',
+           poster: 'リルビ little bit - ロボ子さん.jpg',
+       },{
+           name: '強風オールバック',
+           artist: 'さくらみこ Cover',
+           src: '強風オールバック -  さくらみこ Cover.mp4',
+           poster: '強風オールバック -  さくらみこ Cover.jpg',
+		type: 'video'
+       },
+       
+   ],
+   autoplay: true,
+   playmode: "listrandom",
+   big: true,
+   dark: false,
+width: "100%",
+size: "14pt",
+    })
+</script>]]></content>
+  </entry>
 </search>
