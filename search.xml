@@ -36,13 +36,13 @@
   <entry>
     <title>Nghe nhạc cùng mình 🎵✨</title>
     <url>/posts/musics/</url>
-    <content><![CDATA[<h1 id="My-Playlist-💗"><a href="#My-Playlist-💗" class="headerlink" title="My Playlist 💗"></a>My Playlist 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
+    <content><![CDATA[<h1 id="Musics-Playlist-💗"><a href="#Musics-Playlist-💗" class="headerlink" title="Musics Playlist 💗"></a>Musics Playlist 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
 </div>
-<div id="mplayer5923"></div>
+<div id="mplayer9207"></div>
 <script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
 <script>
     new cplayer({
-      element: document.getElementById('mplayer5923'),
+      element: document.getElementById('mplayer9207'),
          playlist: [
        {
            name: 'METAMORPHOSIS',
@@ -84,9 +84,27 @@
    playmode: "listrandom",
    big: true,
    dark: false,
-width: "100%",
-size: "14pt",
+width: "100%"
     })
-</script>]]></content>
+</script>
+
+<h1 id="YTB-Playlist-💗"><a href="#YTB-Playlist-💗" class="headerlink" title="YTB Playlist 💗"></a>YTB Playlist 💗</h1><style>.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+  }
+  .embed-container iframe, .embed-container object, .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+
+<div class="embed-container"><iframe src="https://www.youtube.com/embed?listType=playlist&amp;list=PL9c11tmXfrMYdBm4uvaYJAjiNw2VkGgKy&amp;autoplay=0&amp;disablekb=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+]]></content>
   </entry>
 </search>
