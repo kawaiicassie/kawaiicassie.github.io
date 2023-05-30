@@ -29,8 +29,96 @@
 
 <p>Cám ơn các bạn đã đọc! Bái bai~</p>
 ]]></content>
+      <categories>
+        <category>Linh tinh</category>
+      </categories>
       <tags>
         <tag>blog</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Chèn nhạc vào bài post | Plugin hexo-tag-mplayer 🎧</title>
+    <url>/posts/486ef9cd/</url>
+    <content><![CDATA[<p><img src="/posts/486ef9cd/demo.jpg" alt="Ảnh Demo"><br>Như tiêu đề thì plugin này giúp chèn <a href="https://github.com/MoePlayer/cPlayer">cPlayer</a> vào trang Hexo bằng cách sử dụng <strong>tags</strong>.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Sử dụng lệnh bash này vào <strong>PowerShell, Cmd hoặc Terminal</strong> của bạn.</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Chắc chắn rằng bạn đã cài đặt <code>Nodejs</code> và <code>npm</code> trước đó rồi nhé!</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ npm install hexo-tag-mplayer --save</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>Sau khi tải Plugin, các bạn vào bài post/page và chèn tags này vào bài markdown của bạn.</p>
+<div class="note info flat"><p>Có thể xoá một số thông tin nếu muốn như: <code>lyric</code>, <code>sublyric</code>, <code>album</code>,..</p>
+</div>
+<div class="note danger flat"><p>Các thông tin bắt buộc phải có là: <code>name</code>, <code>artist</code>, <code>src</code> và <code>poster</code><br><strong>Nếu bạn không muốn bị lỗi vui lòng đừng xoá!</strong></p>
+</div>
+<h3 id="Mucsics"><a href="#Mucsics" class="headerlink" title="Mucsics:"></a>Mucsics:</h3><figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">{% mplayer %}</span><br><span class="line"><span class="code">    playlist: [</span></span><br><span class="line"><span class="code">        {</span></span><br><span class="line"><span class="code">            name: 'Tên bài hát',</span></span><br><span class="line"><span class="code">            artist: 'Ca sĩ',</span></span><br><span class="line"><span class="code">            src: 'Đường dẫn đến file mp3',</span></span><br><span class="line"><span class="code">            poster: 'Đường dẫn đến ảnh poster',</span></span><br><span class="line"><span class="code">            lyric: 'Lời bài hát (có thể xoá nếu không cần)',</span></span><br><span class="line"><span class="code">            Sublyric: 'Dịch lời bài hát (có thể xoá nếu không cần)',</span></span><br><span class="line"><span class="code">	    album: 'Tên album của bài hát'</span></span><br><span class="line"><span class="code">        },</span></span><br><span class="line"><span class="code">        { </span></span><br><span class="line"><span class="code">			...</span></span><br><span class="line"><span class="code">        },</span></span><br><span class="line"><span class="code">    ],</span></span><br><span class="line"><span class="code">    autoplay: true,</span></span><br><span class="line"><span class="code">    volume: 0.75,</span></span><br><span class="line"><span class="code">    playmode: "listloop",</span></span><br><span class="line"><span class="code">    big: true,</span></span><br><span class="line"><span class="code">    dark: false</span></span><br><span class="line"><span class="code">{% endmplayer %}</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="Videos"><a href="#Videos" class="headerlink" title="Videos"></a>Videos</h3><p>Để chèn video thì các bạn thay thế như sau:</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Đường dẫn đến file <strong>MP3</strong> các bạn thay bằng <strong>MP4</strong></li>
+</ul>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">name: 'Tên bài hát',</span><br><span class="line">artist: 'Ca sĩ',</span><br><span class="line">src: 'Đường dẫn đến file mp4',</span><br><span class="line">poster: 'Đường dẫn đến ảnh poster',</span><br><span class="line">lyric: 'Lời bài hát (có thể xoá nếu không cần)',</span><br><span class="line">Sublyric: 'Dịch lời bài hát (có thể xoá nếu không cần)',</span><br><span class="line">album: 'Tên album của bài hát'</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Nếu muốn xem Demo, vào trang <a href="/posts/musics">KawaiiCassie Musics</a> này.</p>
+<h1 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h1><table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th align="center">Default content</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">playlist</td>
+<td align="center"><code>[]</code></td>
+<td align="left">Playlist.</td>
+</tr>
+<tr>
+<td align="left">autoplay</td>
+<td align="center"><code>false</code></td>
+<td align="left">Tự động phát (<strong>không hỗ trợ trên moblie</strong>).</td>
+</tr>
+<tr>
+<td align="left">volume</td>
+<td align="center"><code>1</code></td>
+<td align="left">Âm lượng mặc định.</td>
+</tr>
+<tr>
+<td align="left">playmode</td>
+<td align="center"><code>listloop</code></td>
+<td align="left">Chế độ phát mặc định (có 3 chế độ: <code>listloop</code>, <code>singlecycle</code>, <code>listrandom</code>).</td>
+</tr>
+<tr>
+<td align="left">big</td>
+<td align="center"><code>false</code></td>
+<td align="left">Kích thước mặc định (muốn to hơn thì chỉnh <code>true</code>).</td>
+</tr>
+<tr>
+<td align="left">dark</td>
+<td align="center"><code>false</code></td>
+<td align="left">Màu sắc của player (chế độ tối thì <code>true</code>).</td>
+</tr>
+</tbody></table>
+<ul>
+<li>3 Chế độ mode:<ul>
+<li><code>listloop</code> Vòng lặp cho playlist</li>
+<li><code>singlecycle</code> Vòng lặp cho một bài hát</li>
+<li><code>listrandom</code> Phát ngẫu nhiên</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Ngoài ra còn nhiều Option nữa. Các bạn vào đây tham khảo <a href="https://github.com/MoePlayer/cPlayer#option">CPlayer Option</a><br>Để xem thêm chi tiết, vui lòng vào <a href="https://cplayer.js.org/">CPlayer Demo</a> của tác giả để xem.</p>
+</blockquote>
+<p>Cám ơn các bạn đã đọc. Có thắc mắc gì vui lòng Comment xuống bên dưới bài viết nhé!</p>
+]]></content>
+      <categories>
+        <category>Lập trình</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>plugin</tag>
       </tags>
   </entry>
   <entry>
@@ -38,11 +126,11 @@
     <url>/posts/musics/</url>
     <content><![CDATA[<h1 id="Musics-Playlist-💗"><a href="#Musics-Playlist-💗" class="headerlink" title="Musics Playlist 💗"></a>Musics Playlist 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
 </div>
-<div id="mplayer9207"></div>
+<div id="mplayer9179"></div>
 <script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
 <script>
     new cplayer({
-      element: document.getElementById('mplayer9207'),
+      element: document.getElementById('mplayer9179'),
          playlist: [
        {
            name: 'METAMORPHOSIS',
@@ -106,5 +194,12 @@ width: "100%"
 
 <div class="embed-container"><iframe src="https://www.youtube.com/embed?listType=playlist&amp;list=PL9c11tmXfrMYdBm4uvaYJAjiNw2VkGgKy&amp;autoplay=0&amp;disablekb=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
 ]]></content>
+      <categories>
+        <category>Musics</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+        <tag>musics</tag>
+      </tags>
   </entry>
 </search>

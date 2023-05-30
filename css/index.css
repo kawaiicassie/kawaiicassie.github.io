@@ -1535,9 +1535,9 @@ img:not([src]) {
 blockquote {
   margin: 0 0 20px;
   padding: 12px 15px;
-  border-left: 3px solid #49b1f5;
-  background-color: #fc74a8;
-  color: #fc74a8;
+  border-left: 3px solid #9dcaeb;
+  background-color: #ff85b4;
+  color: #fff;
 }
 blockquote footer cite:before {
   padding: 0 5px;
@@ -1669,7 +1669,7 @@ figure.highlight pre .javascript .function {
 }
 #article-container pre,
 #article-container code {
-  font-size: var(--global-font-size);
+  font-size: 14px;
   font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
 }
 #article-container code {
@@ -2697,7 +2697,7 @@ h1.page-title + .tag-cloud-list {
 #aside-content .aside-list > .aside-list-item .content > time,
 #aside-content .aside-list > .aside-list-item .content > .name {
   display: block;
-  color: #858585;
+  color: #9dcaeb;
   font-size: 85%;
 }
 #aside-content .aside-list > .aside-list-item .content > .title,
