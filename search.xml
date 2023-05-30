@@ -126,11 +126,11 @@
     <url>/posts/musics/</url>
     <content><![CDATA[<h1 id="Musics-Playlist-💗"><a href="#Musics-Playlist-💗" class="headerlink" title="Musics Playlist 💗"></a>Musics Playlist 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
 </div>
-<div id="mplayer9179"></div>
+<div id="mplayer2591"></div>
 <script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
 <script>
     new cplayer({
-      element: document.getElementById('mplayer9179'),
+      element: document.getElementById('mplayer2591'),
          playlist: [
        {
            name: 'METAMORPHOSIS',
