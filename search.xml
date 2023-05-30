@@ -61,7 +61,7 @@
 <figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">name: 'Tên bài hát',</span><br><span class="line">artist: 'Ca sĩ',</span><br><span class="line">src: 'Đường dẫn đến file mp4',</span><br><span class="line">poster: 'Đường dẫn đến ảnh poster',</span><br><span class="line">lyric: 'Lời bài hát (có thể xoá nếu không cần)',</span><br><span class="line">Sublyric: 'Dịch lời bài hát (có thể xoá nếu không cần)',</span><br><span class="line">album: 'Tên album của bài hát'</span><br></pre></td></tr></tbody></table></figure>
 
 <p>Nếu muốn xem Demo, vào trang <a href="/posts/musics">KawaiiCassie Musics</a> này.</p>
-<h1 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h1><table>
+<h3 id="Option"><a href="#Option" class="headerlink" title="Option"></a>Option</h3><table>
 <thead>
 <tr>
 <th align="left">Option</th>
@@ -124,13 +124,13 @@
   <entry>
     <title>Nghe nhạc cùng mình 🎵✨</title>
     <url>/posts/musics/</url>
-    <content><![CDATA[<h1 id="Musics-Playlist-💗"><a href="#Musics-Playlist-💗" class="headerlink" title="Musics Playlist 💗"></a>Musics Playlist 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
+    <content><![CDATA[<h1 id="Musics-💗"><a href="#Musics-💗" class="headerlink" title="Musics 💗"></a>Musics 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
 </div>
-<div id="mplayer2591"></div>
+<div id="mplayer3904"></div>
 <script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
 <script>
     new cplayer({
-      element: document.getElementById('mplayer2591'),
+      element: document.getElementById('mplayer3904'),
          playlist: [
        {
            name: 'METAMORPHOSIS',
@@ -176,7 +176,7 @@ width: "100%"
     })
 </script>
 
-<h1 id="YTB-Playlist-💗"><a href="#YTB-Playlist-💗" class="headerlink" title="YTB Playlist 💗"></a>YTB Playlist 💗</h1><style>.embed-container {
+<h1 id="Youtube-💗"><a href="#Youtube-💗" class="headerlink" title="Youtube 💗"></a>Youtube 💗</h1><style>.embed-container {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
