@@ -181,11 +181,11 @@
     <url>/posts/musics/</url>
     <content><![CDATA[<h1 id="Musics-💗"><a href="#Musics-💗" class="headerlink" title="Musics 💗"></a>Musics 💗</h1><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé!<br>Xin lỗi vì sự bất tiện này. Have a nice day!</p>
 </div>
-<div id="mplayer3778"></div>
+<div id="mplayer1459"></div>
 <script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script>
 <script>
     new cplayer({
-      element: document.getElementById('mplayer3778'),
+      element: document.getElementById('mplayer1459'),
          playlist: [
        {
            name: 'METAMORPHOSIS',
@@ -220,6 +220,21 @@
            src: '強風オールバック -  さくらみこ Cover.mp4',
            poster: '強風オールバック -  さくらみこ Cover.jpg',
 		type: 'video'
+       },{
+           name: 'FEARLESS',
+           artist: 'LE SSERAFIM',
+           src: 'FEARLESS - LE SSERAFIM.mp3',
+           poster: 'FEARLESS - LE SSERAFIM.jpg',
+       },{
+           name: 'Eve, Psyche & The Bluebeards wife',
+           artist: 'LE SSERAFIM',
+           src: 'Eve, Psyche & The Bluebeards wife - LE SSERAFIM.mp3',
+           poster: 'Eve, Psyche & The Bluebeards wife - LE SSERAFIM.jpg',
+       },{
+           name: 'ANTIFRAGILE',
+           artist: 'LE SSERAFIM',
+           src: 'ANTIFRAGILE - LE SSERAFIM.mp3',
+           poster: 'ANTIFRAGILE - LE SSERAFIM.jpg',
        },
        
    ],
