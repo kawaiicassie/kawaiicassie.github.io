@@ -24,7 +24,7 @@ function percent() {
   if (result < 95) { // 如果阅读进度小于95% 就显示百分比
     btn.childNodes[0].style.display = 'none'
     btn.childNodes[1].style.display = 'block'
-    btn.childNodes[1].innerHTML = result + '<span>%</span>';
+    btn.childNodes[1].innerHTML = result;
   } else { // 如果大于95%就显示回到顶部图标
     btn.childNodes[1].style.display = 'none'
     btn.childNodes[0].style.display = 'block'
@@ -274,18 +274,18 @@ function showWelcome() {
   //根据本地时间切换欢迎语
   let timeChange;
   let date = new Date();
-  if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>上午好</span>，一日之计在于晨！";
-  else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>中午好</span>，该摸鱼吃午饭了。";
-  else if (date.getHours() >= 13 && date.getHours() < 15) timeChange = "<span>下午好</span>，懒懒地睡个午觉吧！";
-  else if (date.getHours() >= 15 && date.getHours() < 16) timeChange = "<span>三点几啦</span>，一起饮茶呀！";
-  else if (date.getHours() >= 16 && date.getHours() < 19) timeChange = "<span>夕阳无限好！</span>";
-  else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>晚上好</span>，夜生活嗨起来！";
-  else timeChange = "夜深了，早点休息，少熬夜。";
+  if (date.getHours() >= 5 && date.getHours() < 11) timeChange = "<span>Chào buổi sáng</span>，chúc bạn một ngày tốt lành!";
+  else if (date.getHours() >= 11 && date.getHours() < 13) timeChange = "<span>Mặt trời lên đỉnh</span>，làm việc thật chăm chỉ nha!";
+  else if (date.getHours() >= 13 && date.getHours() < 15) timeChange = "<span>Chào buổi trưa</span>，nhớ ăn rồi nghỉ ngơi đó!";
+  else if (date.getHours() >= 15 && date.getHours() < 16) timeChange = "<span>Chào buổi chiều</span>，chuẩn bị đồ thật đẹp để đi chơi nè!";
+  else if (date.getHours() >= 16 && date.getHours() < 19) timeChange = "<span>Hoàng hôn ló dạng!</span>";
+  else if (date.getHours() >= 19 && date.getHours() < 24) timeChange = "<span>Chào buổi tối</span>，vui chơi thoải mái với bạn bè nè!";
+  else timeChange = "Đêm khuya rồi đừng xem nữa, ngủ sớm đi!";
 
   try {
     //自定义文本和需要放的位置
     document.getElementById("welcome-info").innerHTML =
-      `<b><center>🎉 欢迎信息 🎉</center>&emsp;&emsp;欢迎来自 <span style="color:var(--theme-color)">${pos}</span> 的小伙伴，${timeChange}您现在距离站长约 <span style="color:var(--theme-color)">${dist}</span> 公里，当前的IP地址为： <span style="color:var(--theme-color)">${ip}</span>， ${posdesc}</b>`;
+      `<b><center>🎉 Chào mừng bạn 🎉</center>&emsp;&emsp;Welcome to <span style="color:var(--theme-color)">${pos}</span> KawaiiCassie🌸，${timeChange}Bây giờ là <span style="color:var(--theme-color)">${dist}</span> km, địa chỉ IP là: <span style="color:var(--theme-color)">${ip}</span>， ${posdesc}</b>`;
   } catch (err) {
     // console.log("Pjax无法获取#welcome-info元素🙄🙄🙄")
   }
@@ -2645,8 +2645,8 @@ function createtime() {
   let currentTimeHtml = "";
   (currentTimeHtml =
     hnum < 18 && hnum >= 9
-      ? `<img class='boardsign' <div style="font-size:13px;font-weight:bold">Trang web này đã hoạt động được ${dnum} ngày ${hnum} giờ ${mnum} phút ${snum} giây <i id="heartbeat" class='fas fa-heartbeat'></i></div>`
-      : `<img class='boardsign' <div style="font-size:13px;font-weight:bold">Trang web này đã hoạt động được ${dnum} ngày ${hnum} giờ ${mnum} phút ${snum} giây <i id="heartbeat" class='fas fa-heartbeat'></i></div>`),
+      ? `<img class='boardsign' <div style="font-size:13px;font-weight:bold">Trang đã hoạt động được ${dnum} ngày ${hnum} giờ ${mnum} phút ${snum} giây <i id="heartbeat" class='fas fa-heartbeat'></i></div>`
+      : `<img class='boardsign' <div style="font-size:13px;font-weight:bold">Trang đã hoạt động được ${dnum} ngày ${hnum} giờ ${mnum} phút ${snum} giây <i id="heartbeat" class='fas fa-heartbeat'></i></div>`),
     document.getElementById("workboard") &&
     (document.getElementById("workboard").innerHTML = currentTimeHtml);
 }
@@ -2698,7 +2698,7 @@ if (window.localStorage.getItem("fpson") == undefined || window.localStorage.get
       } else if (fps <= 45) {
         var kd = `<span style="color:#08b7e4">Mượt 😁</span>`
       } else {
-        var kd = `<span style="color:#39c5bb">Rất mượt 🤣</span>`
+        var kd = `<span style="color:#39c5bb">Ngon lành 🤣</span>`
       }
       document.getElementById("fps").innerHTML = `FPS: ${fps} ${kd}`;
       frame = 0;
@@ -3285,7 +3285,7 @@ function createWinbox() {
 <h3>6. Tuỳ chỉnh nền</h3>
 <details class="folding-tag" cyan><summary> Đặt nền tuỳ chỉnh </summary>
               <div class='content'>
-              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="Nhập liên kết ảnh. Ví dụ: https://source.fomal.cc/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈 Đổi nền 🌈</button></center></p>
+              <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="Nhập liên kết ảnh. Ví dụ: https://kawaiicassie.github.io/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈 Đổi nền 🌈</button></center></p>
               </div>
             </details>
 
@@ -3433,3 +3433,7 @@ var newYear = () => {
     });
 }
 newYear();
+
+document.onkeydown = function (e) {
+  if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("Chức năng bảng điều khiển F12 và xem mã nguồn đã bị vô hiệu hoá!"), event.keyCode = 0, event.returnValue = !1, !1
+};
