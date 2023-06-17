@@ -3434,9 +3434,9 @@ var newYear = () => {
 }
 newYear();
 
-document.onkeydown = function (e) {
-  if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("Chức năng bảng điều khiển F12 và xem mã nguồn đã bị vô hiệu hoá!"), event.keyCode = 0, event.returnValue = !1, !1
-};
+//document.onkeydown = function (e) {
+//  if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("Chức năng bảng điều khiển F12 và xem mã nguồn đã bị vô hiệu hoá!"), event.keyCode = 0, event.returnValue = !1, !1
+//};
 function catalogActive () {
   let $list = document.getElementById('catalog-list')
   if ($list) {
