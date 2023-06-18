@@ -9542,12 +9542,6 @@ i.fas.fa-cog.right_side {
 /* 目录样式 */
 #aside-content #card-toc .toc-content {
   margin: 0 -16px 0 -25px;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-}
-#aside-content #card-toc .toc-content:hover {
-  filter: blur(0px);
-  -webkit-filter: blur(0px);
 }
 /* diff块颜色 */
 figure.highlight pre .addition {

@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kawaiicassie.github.io/about/index.html</loc>
+    <loc>https://kawaiicassie.github.io/gallery/index.html</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kawaiicassie.github.io/sietube/index.html</loc>
     
     <lastmod>2023-06-18</lastmod>
     
@@ -12,6 +21,15 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/posts/musics/</loc>
+    
+    <lastmod>2023-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://kawaiicassie.github.io/about/index.html</loc>
     
     <lastmod>2023-06-18</lastmod>
     
@@ -50,15 +68,6 @@
     <loc>https://kawaiicassie.github.io/musics/index.html</loc>
     
     <lastmod>2023-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kawaiicassie.github.io/sietube/index.html</loc>
-    
-    <lastmod>2023-06-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -155,15 +164,6 @@
   </url>
   
   <url>
-    <loc>https://kawaiicassie.github.io/gallery/index.html</loc>
-    
-    <lastmod>2023-05-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kawaiicassie.github.io/gallery/ghibli/index.html</loc>
     
     <lastmod>2023-05-28</lastmod>
@@ -230,14 +230,14 @@
   </url>
   
   <url>
-    <loc>https://kawaiicassie.github.io/tags/musics/</loc>
+    <loc>https://kawaiicassie.github.io/tags/plugin/</loc>
     <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kawaiicassie.github.io/tags/plugin/</loc>
+    <loc>https://kawaiicassie.github.io/tags/musics/</loc>
     <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
