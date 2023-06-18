@@ -3262,16 +3262,21 @@ function createWinbox() {
               </div>
             </details>
 
+<h3>2. Anime</h3>
+<details class="folding-tag" cyan><summary> Xem nền Anime </summary>
+              <div class='content'>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-1.png" class="imgbox" onclick="changeBg('url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-1.png)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-2.png" class="imgbox" onclick="changeBg('url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-2.png)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-3-1.png" class="imgbox" onclick="changeBg('url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-3-1.png)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-4.png" class="imgbox" onclick="changeBg('url(https://cdn.jsdelivr.net/gh/kawaiicassie/CDN@main/uploads/5cm1s-4.png)')"></a></div>
+              </div>
+            </details>
 
-<h3>2. Ghibli</h3>
-
+<h3>3. Ghibli</h3>
 <details class="folding-tag" cyan><summary> Xem nền Ghibli </summary>
               <div class='content'>
               <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/1.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/1.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/2.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/2.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/4.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/4.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/5.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/5.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/6.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/6.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/7.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/7.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/8.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/8.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/9.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/9.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/10.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/10.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/11.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/11.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/12.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/12.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/ghibli/14.jpg)" class="imgbox" onclick="changeBg('url(/img/gallery/ghibli/14.jpg)')"></a></div>
               </div>
             </details>
 
-<h3>3. Gradient</h3>
+<h3>4. Gradient</h3>
 <details class="folding-tag" cyan><summary> Xem nền màu chuyển sắc </summary>
               <div class='content'>
               <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #544a7d, #ffd452)" onclick="changeBg('linear-gradient(to right, #544a7d, #ffd452)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)" onclick="changeBg('linear-gradient(to bottom, #7f7fd5, #86a8e7, #91eae4)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to left, #654ea3, #eaafc8)" onclick="changeBg('linear-gradient(to left, #654ea3, #eaafc8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)" onclick="changeBg('linear-gradient(to top, #feac5e, #c779d0, #4bc0c8)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #d3959b, #bfe6ba)" onclick="changeBg('linear-gradient(to top, #d3959b, #bfe6ba)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #8360c3, #2ebf91)" onclick="changeBg('linear-gradient(to top, #8360c3, #2ebf91)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #108dc7, #ef8e38)" onclick="changeBg('linear-gradient(to top, #108dc7, #ef8e38)')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)" onclick="changeBg('linear-gradient(to top, #355c7d, #6c5b7b, #c06c84)')"></a></div>
@@ -3279,7 +3284,7 @@ function createWinbox() {
             </details>
 
 
-<h3>4. Màu pastel</h3>
+<h3>5. Màu pastel</h3>
 <details class="folding-tag" cyan><summary> Xem nền màu Pastel </summary>
               <div class='content'>
               <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ecb1b1" onclick="changeBg('#ecb1b1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #d3ebac" onclick="changeBg('#d3ebac')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #ace9ce" onclick="changeBg('#ace9ce')"></a><a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #c1ebea" onclick="changeBg('#c1ebea')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #dee7f1" onclick="changeBg('#dee7f1')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #e9e3f2" onclick="changeBg('#e9e3f2')"></a> <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #f7eff5" onclick="changeBg('#f7eff5')"></a>  <input type="color" id="define_colors" href="javascript:;" rel="noopener external nofollow" class="box" autocomplete="on" value="${defineColor}" oninput="changeBgColor()"></input></div>
@@ -3287,7 +3292,7 @@ function createWinbox() {
             </details>
 
 
-<h3>5. Thích hợp cho điện thoại</h3>
+<h3>6. Thích hợp cho điện thoại</h3>
 <details class="folding-tag" cyan><summary> Xem nền hỗ trợ tốt cho điện thoại </summary>
               <div class='content'>
               <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/mobile/1.webp)" class="pimgbox" onclick="changeBg('url(/img/gallery/mobile/1.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/mobile/2.webp)" class="pimgbox" onclick="changeBg('url(/img/gallery/mobile/2.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/mobile/3.webp)" class="pimgbox" onclick="changeBg('url(/img/gallery/mobile/3.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/mobile/4.webp)" class="pimgbox" onclick="changeBg('url(/img/gallery/mobile/4.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/mobile/5.webp)" class="pimgbox" onclick="changeBg('url(/img/gallery/mobile/5.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/gallery/mobile/6.webp)" class="pimgbox" onclick="changeBg('url(/img/gallery/mobile/6.webp)')"></a></div>
@@ -3295,7 +3300,7 @@ function createWinbox() {
             </details>
 
 
-<h3>6. Tuỳ chỉnh nền</h3>
+<h3>7. Tuỳ chỉnh nền</h3>
 <details class="folding-tag" cyan><summary> Đặt nền tuỳ chỉnh </summary>
               <div class='content'>
               <p><center><input type="text" id="pic-link" size="70%" maxlength="1000" placeholder="Nhập liên kết ảnh. Ví dụ: https://kawaiicassie.github.io/img/home_bg.webp"></center></p><p><center><button type="button" onclick="getPicture()" style="background:var(--theme-color);width:35%;padding: 5px 0px 7px 0px;border-radius:30px;color:white;line-height:2;">🌈 Đổi nền 🌈</button></center></p>

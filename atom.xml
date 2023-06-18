@@ -6,7 +6,7 @@
   <link href="https://kawaiicassie.github.io/atom.xml" rel="self"/>
   
   <link href="https://kawaiicassie.github.io/"/>
-  <updated>2023-06-14T19:13:42.998Z</updated>
+  <updated>2023-06-18T20:24:36.405Z</updated>
   <id>https://kawaiicassie.github.io/</id>
   
   <author>
@@ -21,7 +21,9 @@
     <link href="https://kawaiicassie.github.io/posts/f3572b79/"/>
     <id>https://kawaiicassie.github.io/posts/f3572b79/</id>
     <published>2023-06-14T09:30:28.000Z</published>
-    <updated>2023-06-14T19:13:42.998Z</updated>
+    <updated>2023-06-18T20:24:36.405Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Trang">Trang</h2><ol><li><div class="tag link"><a class="link-card" title="SieTube" href="/sietube/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/kawaiicassie/kawaiicassie.github.io@main/img/favicon.ico"/></div><div class="right"><p class="text">SieTube</p><p class="url">/sietube/</p></div></a></div></li><li><div class="tag link"><a class="link-card" title="Bảng thông báo" href="/notice/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/kawaiicassie/kawaiicassie.github.io@main/img/favicon.ico"/></div><div class="right"><p class="text">Bảng thông báo</p><p class="url">/notice/</p></div></a></div></li><li><div class="tag link"><a class="link-card" title="Người ủng hộ" href="/thanks/"><div class="left"><img src="https://cdn.jsdelivr.net/gh/kawaiicassie/kawaiicassie.github.io@main/img/favicon.ico"/></div><div class="right"><p class="text">Người ủng hộ</p><p class="url">/thanks/</p></div></a></div></li><li><div class="tag link"><a class="link-card" title="Xem chung" href="https://kscord.vercel.app"><div class="left"><img src="https://cdn.jsdelivr.net/gh/kawaiicassie/kawaiicassie.github.io@main/img/favicon.ico"/></div><div class="right"><p class="text">Xem chung</p><p class="url">https://kscord.vercel.app</p></div></a></div></li></ol><h2 id="Chuc-nang">Chức năng</h2><ol><li>Một vài chức năng:</li></ol><ul><li>Chức năng <wavy>Anchor</wavy> bài viết (Biểu tượng cuốn sách Menu bên phải)</li><li>Sử dụng <wavy>redirect link</wavy> cảnh báo chuyển hướng trang.</li><li>Sử dụng ảnh <wavy>CDN</wavy> tối ưu hoá tốc độ.</li><li>…</li></ul><span class='p red'>Hết rồi ( •̀ ω •́ )y</span><blockquote><p>Ôi cái lưng tui T-T</p></blockquote>]]></content>
     
     
     <summary type="html">Updates nhiều tính năng cho trang</summary>

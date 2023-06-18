@@ -905,3 +905,10 @@ a.anchor-item:hover{
   #article-container .code-expand-btn:hover i {
     color: #000;
   }
+  #article-container img {
+    border-radius: 12px;
+    box-shadow: 1px 1px 6px 0px #000;
+  }
+  [data-theme="dark"] #article-container img {
+    box-shadow: 1px 1px 6px 0px #fff;
+  }
