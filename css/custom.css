@@ -782,7 +782,7 @@ a.anchor-item:hover{
   .music-player .progress:hover .pointer {
     opacity: 1;
   }
-  @media screen and (max-width:600px){
+  @media screen and (max-width:600px) {
     .music-player
   }
   
