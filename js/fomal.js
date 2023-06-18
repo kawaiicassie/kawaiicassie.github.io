@@ -3028,8 +3028,8 @@ if (localStorage.getItem("blogbg") != undefined) {
   setBg(localStorage.getItem("blogbg"));
 } else {
   document.getElementById("defineBg").innerText = `:root{
-    --default-bg: url(/img/home_bg.webp);
-    --darkmode-bg:url(/img/dark_mode.webp);
+    --default-bg: url(/img/24.jpg);
+    --darkmode-bg:url(/img/15.png);
     --mobileday-bg: url(/img/gallery/mobile/2.webp);
     --mobilenight-bg: url(/img/gallery/mobile/4.webp);
   }`;
@@ -3256,9 +3256,9 @@ function createWinbox() {
 <center><button onclick="resetBg()" style="background:var(--theme-color);display:block;width:35%;padding:15px 0;border-radius:30px;color:white;"><i class="fa-solid fa-arrows-rotate"></i>&nbsp;Khôi phục hình nền mặc định</button></center>
 
 <h3>1. Ban đêm</h3>
-<details class="folding-tag" cyan><summary> Xem nền ban đêm </summary>
+<details class="folding-tag" cyan><summary> Xem nền mặc định </summary>
               <div class='content'>
-              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/dark_mode.webp)" class="imgbox" onclick="changeBg('url(/img/dark_mode.webp)')"></a></div>
+              <div class="bgbox"><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/24.jpg)" class="imgbox" onclick="changeBg('url(/img/24.jpg)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/15.png)" class="imgbox" onclick="changeBg('url(/img/15.png)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/home_bg.webp)" class="imgbox" onclick="changeBg('url(/img/home_bg.webp)')"></a><a href="javascript:;" rel="noopener external nofollow" style="background-image:url(/img/dark_mode.webp)" class="imgbox" onclick="changeBg('url(/img/dark_mode.webp)')"></a></div>
               </div>
             </details>
 
