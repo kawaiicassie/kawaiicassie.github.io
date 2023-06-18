@@ -36,29 +36,6 @@
   </entry>
   
   <entry>
-    <title>Nghe nhạc cùng mình 🎵✨</title>
-    <link href="https://kawaiicassie.github.io/posts/musics/"/>
-    <id>https://kawaiicassie.github.io/posts/musics/</id>
-    <published>2023-06-12T23:59:15.886Z</published>
-    <updated>2023-06-18T12:26:51.313Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Musics-💗">Musics 💗</h2><div class="note warning flat"><p>Nếu bạn không thấy trình phát nhạc thì hãy <mark class="hl-label orange">Refresh</mark>  (F5) lại trang nhé! Xin lỗi vì sự bất tiện này. Have a nice day!</p></div><div id="mplayer5583"></div><script src="https://cdn.jsdelivr.net/gh/MoePlayer/cPlayer/dist/cplayer.js"></script><script>    new cplayer({      element: document.getElementById('mplayer5583'),         playlist: [       {           name: 'METAMORPHOSIS',           artist: 'InterWorld',           src: 'METAMORPHOSIS.mp3',           poster: 'METAMORPHOSIS.jpg',       },       {           name: 'Reminder',           artist: 'The Weeknd',           src: 'The Weeknd - Reminder.mp3',           poster: 'The Weeknd - Reminder.jpg',       },       {           name: 'ghệ iu dấu của em ơi',           artist: 'tlinh',           src: 'ghệ iu dấu của em ơi - tlinh.mp3',           poster: 'ghệ iu dấu của em ơi - tlinh.jpg',       },{           name: '『リルビ-little bit-』',           artist: 'ロボ子さん',           src: 'リルビ little bit - ロボ子さん.mp3',           poster: 'リルビ little bit - ロボ子さん.jpg',       },{           name: 'アイドル',           artist: 'YOASOBI',           src: 'YOASOBI - アイドル.mp3',           poster: 'YOASOBI - アイドル.jpg',       },{           name: '強風オールバック',           artist: 'さくらみこ Cover',           src: '強風オールバック -  さくらみこ Cover.mp4',           poster: '強風オールバック -  さくらみこ Cover.jpg',type: 'video'       },{           name: 'FEARLESS',           artist: 'LE SSERAFIM',           src: 'FEARLESS - LE SSERAFIM.mp3',           poster: 'FEARLESS - LE SSERAFIM.jpg',       },{           name: 'Eve, Psyche & The Bluebeards wife',           artist: 'LE SSERAFIM',           src: 'Eve, Psyche & The Bluebeards wife - LE SSERAFIM.mp3',           poster: 'Eve, Psyche & The Bluebeards wife - LE SSERAFIM.jpg',       },{           name: 'ANTIFRAGILE',           artist: 'LE SSERAFIM',           src: 'ANTIFRAGILE - LE SSERAFIM.mp3',           poster: 'ANTIFRAGILE - LE SSERAFIM.jpg',       },          ],   autoplay: true,   playmode: "listrandom",   big: true,   dark: false,width: "100%"    })</script><h2 id="Youtube-💗">Youtube 💗</h2><style>.embed-container {    position: relative;    padding-bottom: 56.25%;    height: 0;    overflow: hidden;    max-width: 100%;  }  .embed-container iframe, .embed-container object, .embed-container embed {    position: absolute;    top: 0;    left: 0;    width: 100%;    height: 100%;  }  </style><div class="embed-container"><iframe src="https://www.youtube.com/embed?listType=playlist&list=PL9c11tmXfrMYdBm4uvaYJAjiNw2VkGgKy&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe></div>]]></content>
-    
-    
-    <summary type="html">Danh sách nhạc yêu thích của mình!</summary>
-    
-    
-    
-    <category term="Musics" scheme="https://kawaiicassie.github.io/categories/Musics/"/>
-    
-    
-    <category term="blog" scheme="https://kawaiicassie.github.io/tags/blog/"/>
-    
-    <category term="musics" scheme="https://kawaiicassie.github.io/tags/musics/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Cảm nhận khi trải nghiệm AI 👩‍⚖️</title>
     <link href="https://kawaiicassie.github.io/posts/43c69df5/"/>
     <id>https://kawaiicassie.github.io/posts/43c69df5/</id>

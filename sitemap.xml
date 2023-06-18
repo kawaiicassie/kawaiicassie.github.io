@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://kawaiicassie.github.io/posts/musics/</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://kawaiicassie.github.io/about/index.html</loc>
     
     <lastmod>2023-06-18</lastmod>
@@ -65,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://kawaiicassie.github.io/musics/index.html</loc>
+    <loc>https://kawaiicassie.github.io/radio/index.html</loc>
     
     <lastmod>2023-06-16</lastmod>
     
@@ -236,13 +227,6 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://kawaiicassie.github.io/tags/musics/</loc>
-    <lastmod>2023-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
@@ -254,13 +238,6 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/categories/Linh-tinh/</loc>
-    <lastmod>2023-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kawaiicassie.github.io/categories/Musics/</loc>
     <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
