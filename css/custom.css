@@ -360,15 +360,15 @@
     opacity: 1;
   }
   .orlike {
-    color: lightskyblue;
+    color: var(--theme-color);
     font-size: 26px!important;
     line-height: 2;
-    text-shadow: 2px 2px 2px #000;
+    text-shadow: 2px 2px 8px #000;
   }
   [data-theme=dark]
   .orlike {
-      color: lightskyblue;
-      text-shadow: 2px 2px 2px #fff;
+      color: var(--theme-color);
+      text-shadow: 2px 2px 8px #fff;
   }
   .orlike:first-child{
       margin-right: 36px;
@@ -388,11 +388,11 @@
       height: 52px;
   }
   .orlike:hover{
-      color: #f07e7e!important;
+      color: lightskyblue!important;
   }
   [data-theme=dark]
   .orlike:hover{
-      color: #e87373e8!important;
+      color: lightskyblue!important;
   }
   .orlike-loading {
       display: block;

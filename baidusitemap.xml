@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://kawaiicassie.github.io/posts/musics/</loc>
+    <lastmod>2023-06-18</lastmod>
+  </url>
+  <url>
+    <loc>https://kawaiicassie.github.io/posts/43c69df5/</loc>
+    <lastmod>2023-06-18</lastmod>
+  </url>
+  <url>
     <loc>https://kawaiicassie.github.io/posts/bf20d129/</loc>
     <lastmod>2023-06-17</lastmod>
   </url>
@@ -9,15 +17,7 @@
     <lastmod>2023-06-14</lastmod>
   </url>
   <url>
-    <loc>https://kawaiicassie.github.io/posts/musics/</loc>
-    <lastmod>2023-06-13</lastmod>
-  </url>
-  <url>
     <loc>https://kawaiicassie.github.io/posts/486ef9cd/</loc>
-    <lastmod>2023-06-12</lastmod>
-  </url>
-  <url>
-    <loc>https://kawaiicassie.github.io/posts/43c69df5/</loc>
     <lastmod>2023-06-12</lastmod>
   </url>
 </urlset> 

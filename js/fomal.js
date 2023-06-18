@@ -1033,21 +1033,21 @@ console.warn = function () { };
 /* 控制台输出字符画 end */
 
 //----------------------------------------------------------------
-if (GLOBAL_CONFIG.Snackbar) {
-  new Vue({
-    data: function () {
-      this.$notify({
-        title: "Chào mừng 🍒",
-        message: "Chào bạn đến với Blog của mình ✨ Trang này có nhiều chức năng lắm nên hãy khám phá nhé, chúc bạn một ngày tốt lành! (｡･∀･)ﾉ",
-        position: 'top-left',
-        offset: 50,
-        showClose: true,
-        type: "success",
-        duration: 5000
-      });
-    }
-  })
-}
+//if (GLOBAL_CONFIG.Snackbar) {
+//  new Vue({
+//    data: function () {
+//      this.$notify({
+//        title: "Chào mừng 🍒",
+//        message: "Chào bạn đến với Blog của mình ✨ Trang này có nhiều chức năng lắm nên hãy khám phá nhé, chúc bạn một ngày tốt lành! (｡･∀･)ﾉ",
+//        position: 'top-left',
+//        offset: 50,
+//        showClose: true,
+//        type: "success",
+//        duration: 5000
+//      });
+//    }
+//  })
+//}
 /* 夜间模式切换动画 start */
 function switchNightMode() {
   document.querySelector('body').insertAdjacentHTML('beforeend', '<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"><div id="sun"></div><div id="moon"></div></div></div>'),
