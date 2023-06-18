@@ -8634,16 +8634,6 @@ li.categoryBar-list-item {
   border-radius: 20px !important;
 } */
 
-/* 置顶滚动栏电脑端样式，手机端用默认的 */
-@media screen and (min-width: 600px) {
-  .blog-slider {
-    height: 260px !important;
-  }
-  .blog-slider__img {
-    width: 240px !important;
-    height: 100% !important;
-  }
-}
 
 /* 自定义颜色框 */
 #define_colors::before {

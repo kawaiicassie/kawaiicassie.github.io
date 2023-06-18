@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kawaiicassie.github.io/posts/bf20d129/</loc>
+    
+    <lastmod>2023-06-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://kawaiicassie.github.io/notice/index.html</loc>
     
     <lastmod>2023-06-16</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/about/index.html</loc>
-    
-    <lastmod>2023-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://kawaiicassie.github.io/posts/bf20d129/</loc>
     
     <lastmod>2023-06-16</lastmod>
     
@@ -202,7 +202,7 @@
 
   <url>
     <loc>https://kawaiicassie.github.io/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -210,35 +210,35 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/blog/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/AI/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/hexo/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/plugin/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/musics/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -247,21 +247,21 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/categories/Lap-trinh/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/categories/Linh-tinh/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/categories/Musics/</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2023-06-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
