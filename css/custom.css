@@ -912,3 +912,6 @@ a.anchor-item:hover{
   [data-theme="dark"] #article-container img {
     box-shadow: 1px 1px 6px 0px #fff;
   }
+  div#cheesy_pick-up_lines-container {
+    display: flex;
+  }

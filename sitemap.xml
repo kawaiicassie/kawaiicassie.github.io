@@ -193,7 +193,7 @@
 
   <url>
     <loc>https://kawaiicassie.github.io/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-06-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -201,28 +201,28 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/blog/</loc>
-    <lastmod>2023-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kawaiicassie.github.io/tags/hexo/</loc>
-    <lastmod>2023-06-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://kawaiicassie.github.io/tags/plugin/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/tags/AI/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kawaiicassie.github.io/tags/hexo/</loc>
+    <lastmod>2023-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kawaiicassie.github.io/tags/plugin/</loc>
+    <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -231,14 +231,14 @@
   
   <url>
     <loc>https://kawaiicassie.github.io/categories/Lap-trinh/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://kawaiicassie.github.io/categories/Linh-tinh/</loc>
-    <lastmod>2023-06-18</lastmod>
+    <lastmod>2023-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
