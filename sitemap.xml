@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.kawaiicassie.io.vn/posts/9be802df/</loc>
+    <loc>https://blog.kawaiicassie.io.vn/gallery/index.html</loc>
     
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kawaiicassie.io.vn/gallery/emcf/index.html</loc>
+    
+    <lastmod>2023-07-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +21,15 @@
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/notice/index.html</loc>
+    
+    <lastmod>2023-07-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.kawaiicassie.io.vn/posts/9be802df/</loc>
     
     <lastmod>2023-07-01</lastmod>
     
@@ -57,15 +75,6 @@
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/message/index.html</loc>
-    
-    <lastmod>2023-06-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.kawaiicassie.io.vn/gallery/index.html</loc>
     
     <lastmod>2023-06-18</lastmod>
     
@@ -202,7 +211,7 @@
 
   <url>
     <loc>https://blog.kawaiicassie.io.vn/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -210,28 +219,28 @@
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/tags/blog/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/tags/AI/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/tags/hexo/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/tags/plugin/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -240,14 +249,14 @@
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/categories/Lap-trinh/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/categories/Linh-tinh/</loc>
-    <lastmod>2023-07-01</lastmod>
+    <lastmod>2023-07-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
