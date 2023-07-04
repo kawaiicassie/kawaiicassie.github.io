@@ -1,7 +1,7 @@
 //commentBarrage v3.0 By Ariasaka
 //for swiper and both(pjax or nopjax)
 //ainb?!!!! qwq
-/document.addEventListener('pjax:complete', startbarrage); //不用pjax请注释掉这一行
+//document.addEventListener('pjax:complete', startbarrage); //不用pjax请注释掉这一行
 document.addEventListener('DOMContentLoaded', startbarrage);
 
 function startbarrage(){

@@ -101,15 +101,6 @@
   </url>
   
   <url>
-    <loc>https://blog.kawaiicassie.io.vn/radio/index.html</loc>
-    
-    <lastmod>2023-06-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.kawaiicassie.io.vn/tags/index.html</loc>
     
     <lastmod>2023-06-14</lastmod>
@@ -120,15 +111,6 @@
   
   <url>
     <loc>https://blog.kawaiicassie.io.vn/categories/index.html</loc>
-    
-    <lastmod>2023-06-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.kawaiicassie.io.vn/comments/index.html</loc>
     
     <lastmod>2023-06-14</lastmod>
     
