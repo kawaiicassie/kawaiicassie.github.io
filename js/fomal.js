@@ -2539,246 +2539,130 @@ dd = d.getDate();
 y = d.getFullYear();
 
 // 公祭日
-if (m == 9 && dd == 18) {
+if (m == 4 && dd == 30) {
   document
     .getElementsByTagName("html")[0]
     .setAttribute("style", "filter: grayscale(60%);");
   if (sessionStorage.getItem("isPopupWindow") != "1") {
     Swal.fire(
-      "今天是九一八事变" +
-        (y - 1931).toString() +
-        "周年纪念日\n🪔勿忘国耻，振兴中华🪔"
+      "Chúc mừng ngày Giải phóng miền Nam! đã được" +
+        (y - 1975).toString() +
+        "năm 🎉\nHãy tự hào về quá trình xây dựng và bảo vệ đất nước!"
     );
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (m == 7 && dd == 7) {
-  document
-    .getElementsByTagName("html")[0]
-    .setAttribute("style", "filter: grayscale(60%);");
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire(
-      "今天是卢沟桥事变" +
-        (y - 1937).toString() +
-        "周年纪念日\n🪔勿忘国耻，振兴中华🪔"
-    );
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (m == 12 && dd == 13) {
-  document
-    .getElementsByTagName("html")[0]
-    .setAttribute("style", "filter: grayscale(60%);");
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire(
-      "今天是南京大屠杀" +
-        (y - 1937).toString() +
-        "周年纪念日\n🪔勿忘国耻，振兴中华🪔"
-    );
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (m == 8 && dd == 14) {
-  document
-    .getElementsByTagName("html")[0]
-    .setAttribute("style", "filter: grayscale(60%);");
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("今天是世界慰安妇纪念日\n🪔勿忘国耻，振兴中华🪔");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 
 // 节假日
-if (m == 10 && dd <= 3) {
+if (m == 9 && dd <= 2) {
+  document
+    .getElementsByTagName("html")[0]
+    .setAttribute("style", "filter: grayscale(60%);");
   //国庆节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("祝祖国" + (y - 1949).toString() + "岁生日快乐！");
+    Swal.fire("Kỷ niệm ngày thành lập nước Việt Nam Dân chủ Cộng hòa, được" + (y - 1949).toString() + "năm 🎉\nChúc mừng ngày Quốc khánh!");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 8 && dd == 15) {
+if (m == 10 && dd == 20) {
   //搞来玩的，小日子投降
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("小日子已经投降" + (y - 1945).toString() + "年了😃");
+    Swal.fire("Chúc mừng ngày của phụ nữ Việt Nam! 🌷💃\nHãy luôn tỏa sáng và trở thành nguồn cảm hứng cho mọi người xung quanh!");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 if (m == 1 && dd == 1) {
   //元旦节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire(y.toString() + "年元旦快乐！🎉");
+    Swal.fire(y.toString() + "Chúc mừng năm mới🎐✨\nNăm mới vui vẻ!！🎉");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 if (m == 3 && dd == 8) {
   //妇女节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("各位女神们，妇女节快乐！👩");
+    Swal.fire("Kính gửi các quý cô, chúc mừng ngày Quốc tế Phụ nữ! 👩");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 l = [
-  "非常抱歉，因为不可控原因，博客将于明天停止运营！",
-  "好消息，日本没了！",
-  "美国垮了，原因竟然是川普！",
-  "微软垮了！",
-  "你的电脑已经过载，建议立即关机！",
-  "你知道吗？站长很喜欢你哦！",
-  "一分钟有61秒哦",
-  "你喜欢的人跟别人跑了！",
+  "Tôi vừa nhận được một cuộc gọi từ NASA, họ muốn tôi làm phi hành gia!",
+  "Tôi mới mua một chiếc siêu xe Lamborghini và đỗ nó trước cửa nhà!",
+  "Tôi vừa trở thành người chiến thắng của một cuộc thi hát và sẽ biểu diễn trên sân khấu lớn!",
+  "Tôi đã tìm thấy bảo vật cổ đại trong khu vực sân sau nhà tôi!",
+  "Tôi mới nhận được một công việc ở một công ty hàng không nổi tiếng và sẽ bay khắp thế giới!",
+  "Tôi đã tìm thấy một hòn đảo riêng và sẽ xây dựng một resort tại đó!",
+  "Tôi là người ngoài hành tinh đến từ hành tinh XZ-47!",
+  "Tôi mới mua một căn hộ ở Paris và sắp chuyển đến sống.",
 ];
 if (m == 4 && dd == 1) {
   //愚人节，随机谎话
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire(l[Math.floor(Math.random() * l.length)]);
+    Swal.fire(l[Math.floor(Math.random() * l.length)] + "\n\nCá tháng tư vui vẻ! 😜");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 if (m == 5 && dd == 1) {
   //劳动节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("劳动节快乐\n为各行各业辛勤工作的人们致敬！");
+    Swal.fire("Chúc mừng ngày của công nhân! 👏\nMong rằng bạn luôn có công việc tốt, thu nhập ổn định và cuộc sống viên mãn.");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 5 && dd == 4) {
-  //青年节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("青年节快乐\n青春不是回忆逝去,而是把握现在！");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (m == 5 && dd == 20) {
+if (m == 11 && dd == 20) {
   //520
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("今年是520情人节\n快和你喜欢的人一起过吧！💑");
+    Swal.fire("Chúc mừng Ngày Nhà giáo Việt Nam! 🎉👨‍🏫👩‍🏫");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 7 && dd == 1) {
+if (m == 6 && dd == 1) {
   //建党节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("祝中国共产党" + (y - 1921).toString() + "岁生日快乐！");
+    Swal.fire("Chúc mừng Ngày Quốc tế Thiếu nhi! 🎉👧👦");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 9 && dd == 10) {
+if (m == 2 && dd == 3) {
+  document
+    .getElementsByTagName("html")[0]
+    .setAttribute("style", "filter: grayscale(60%);");
   //教师节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("各位老师们教师节快乐！👩‍🏫");
+    Swal.fire("Chúc mừng Ngày" + (y - 1930).toString() + "thành lập Đảng Cộng sản Việt Nam! 🎉🚩");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 if (m == 12 && dd == 25) {
   //圣诞节
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("圣诞节快乐！🎄");
+    Swal.fire("Chúc mừng Giáng sinh!\nHãy tràn đầy niềm vui, ấm áp và hạnh phúc bên gia đình và người thân yêu.🎄");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 8 && dd == 11) {
+if (m == 5 && dd == 17) {
   //站长生日
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("祝站长" + (y - 1998).toString() + "岁生日快乐！🥝");
+    Swal.fire("Chúc mừng sinh nhật! 🌸🌷\nSinh nhật năm thứ" + (y - 2002).toString() + "của chủ Blog 🎉");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
-if (m == 6 && dd == 30) {
+if (m == 12 && dd == 22) {
+  document
+    .getElementsByTagName("html")[0]
+    .setAttribute("style", "filter: grayscale(60%);");
   //小猫咪生日
   if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("祝小猫咪" + (y - 1999).toString() + "岁生日快乐！🐱");
+    Swal.fire("Chúc mừng" (y - 1944).toString() + "năm ✨\nNgày thành lập Quân đội Nhân dân Việt Nam! 🎉🎖️");
     sessionStorage.setItem("isPopupWindow", "1");
   }
 }
 
 //传统节日部分
 
-if (
-  (y == 2023 && m == 4 && dd == 5) ||
-  (y == 2024 && m == 4 && dd == 4) ||
-  (y == 2025 && m == 4 && dd == 4)
-) {
-  //清明节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("清明时节雨纷纷,一束鲜花祭故人💐");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (
-  (y == 2023 && m == 12 && dd == 22) ||
-  (y == 2024 && m == 12 && dd == 21) ||
-  (y == 2025 && m == 12 && dd == 21)
-) {
-  //冬至
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("冬至快乐\n快吃上一碗热热的汤圆和饺子吧🧆");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-
-var lunar = calendarFormatter.solar2lunar();
-
 //农历采用汉字计算，防止出现闰月导致问题
 
-if (
-  (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初六") ||
-  (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初五") ||
-  (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初四") ||
-  (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初三") ||
-  (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初二") ||
-  (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初一") ||
-  (lunar["IMonthCn"] == "腊月" && lunar["IDayCn"] == "三十") ||
-  (lunar["IMonthCn"] == "腊月" && lunar["IDayCn"] == "廿九")
-) {
-  //春节，本来只有大年三十到初六，但是有时候除夕是大年二十九，所以也加上了
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire(y.toString() + "年新年快乐\n🎊祝你心想事成，诸事顺利🎊");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "十五") {
-  //元宵节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("元宵节快乐\n送你一个大大的灯笼🧅");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (lunar["IMonthCn"] == "五月" && lunar["IDayCn"] == "初五") {
-  //端午节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("端午节快乐\n请你吃一条粽子🍙");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (lunar["IMonthCn"] == "七月" && lunar["IDayCn"] == "初七") {
-  //七夕节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("七夕节快乐\n黄昏后,柳梢头,牛郎织女来碰头");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (lunar["IMonthCn"] == "八月" && lunar["IDayCn"] == "十五") {
-  //中秋节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("中秋节快乐\n请你吃一块月饼🍪");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
-if (lunar["IMonthCn"] == "九月" && lunar["IDayCn"] == "初九") {
-  //重阳节
-  if (sessionStorage.getItem("isPopupWindow") != "1") {
-    Swal.fire("重阳节快乐\n独在异乡为异客，每逢佳节倍思亲");
-    sessionStorage.setItem("isPopupWindow", "1");
-  }
-}
 
-// 切换主题提醒
-// if (y == 2022 && m == 12 && (dd >= 18 && dd <= 20)) {
-//     if (sessionStorage.getItem("isPopupWindow") != "1") {
-//         Swal.fire("网站换成冬日限定主题啦⛄");
-//         sessionStorage.setItem("isPopupWindow", "1");
-//     }
-// }
 
 /* 节日弹窗 end */
 
