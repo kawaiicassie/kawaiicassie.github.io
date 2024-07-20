@@ -280,6 +280,12 @@ main {
     white-space: nowrap;
 }
 
+.widget img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @media (width < 880px) {
     .widget[style*='--m-'] {
         --c: min(var(--m-columns, 2), var(--template-columns));
