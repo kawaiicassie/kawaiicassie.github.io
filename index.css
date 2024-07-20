@@ -81,7 +81,7 @@ header section {
 }
 
 h2 {
-    animation: 2s ease-in-out 1.9s both bio;
+    animation: 2s ease-in-out 1.9s;
     color: #fff;
     font-weight: normal;
     font-size: clamp(23px, 3vmin, 25px);
