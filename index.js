@@ -95,7 +95,7 @@ const map = new Map();
     const StatusColor = { online: '#4b8', idle: '#fa1', dnd: '#f44', offline: '#778' };
     const ws = new WebSocket('wss://api.lanyard.rest/socket');
 
-    ws.addEventListener('open', () => ws.send(JSON.stringify({ op: 2, d: { subscribe_to_id: '393694671383166998' } })));
+    ws.addEventListener('open', () => ws.send(JSON.stringify({ op: 2, d: { subscribe_to_id: '1159348783876931634' } })));
     ws.addEventListener('error', () => ws.close());
     ws.addEventListener('close', () => setTimeout(lanyard, 1000));
 
