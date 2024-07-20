@@ -36,7 +36,7 @@ async function getStats(env) {
         e: repository(owner: "AutumnVN", name: "bot") { stargazers { totalCount } forks { totalCount } }
         f: repository(owner: "Vendicated", name: "Vencord") { stargazers { totalCount } forks { totalCount } }
 
-        z: user(login: "AutumnVN") {
+        z: user(login: "kawaiicassie") {
             repositories(first: 100, ownerAffiliations: OWNER) {
                 nodes {
                     stargazerCount
@@ -63,7 +63,7 @@ async function getStats(env) {
         headers: {
             'accept': 'application/json',
             'authorization': `bearer ${env.GITHUB_TOKEN}`,
-            'user-agent': 'AutumnVN'
+            'user-agent': 'kawaiicassie'
         },
         body: JSON.stringify({ query })
     }).then(r => r.json());
