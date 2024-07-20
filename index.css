@@ -80,7 +80,7 @@ header section {
     gap: 20px;
 }
 
-header h2 {
+h2 {
     -webkit-mask: linear-gradient(to right, #fff 60%, transparent 55%) 0 0/220% 100% no-repeat;
     animation: 2s ease-in-out 1.9s both bio;
     color: #fff;
