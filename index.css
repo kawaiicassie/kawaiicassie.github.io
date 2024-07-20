@@ -80,15 +80,7 @@ header section {
     gap: 20px;
 }
 
-header h1 {
-    -webkit-mask: linear-gradient(to right, #fff 60%, transparent 55%) 0 0/220% 100% no-repeat;
-    animation: 2s ease-in-out 1.9s both bio;
-    color: #fff;
-    font-weight: normal;
-    font-size: clamp(23px, 3vmin, 25px);
-    backdrop-filter: saturate(2) brightness(2.5) blur(12px);
-    width: min(500px, 100%);
-}
+
 
 header p {
     -webkit-mask: linear-gradient(to right, #fff 45%, transparent 55%) 0 0/220% 100% no-repeat;
