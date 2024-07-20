@@ -85,7 +85,6 @@ h2 {
     color: #fff;
     font-weight: normal;
     font-size: clamp(23px, 3vmin, 25px);
-    backdrop-filter: saturate(2) brightness(2.5) blur(12px);
 }
 
 header p {
