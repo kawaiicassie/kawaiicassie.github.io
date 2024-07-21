@@ -287,11 +287,22 @@ main {
     object-fit: cover;
     cursor: not-allowed;
 }
+.slideshow {
+    animation: fadeIn 1s ease;
+}
 
 @media (width < 880px) {
     .widget[style*='--m-'] {
         --c: min(var(--m-columns, 2), var(--template-columns));
         --r: var(--m-rows, 2);
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
