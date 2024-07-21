@@ -171,6 +171,6 @@ setInterval (function(){
   if (index === imageSources.length) {
     index = 0;
   }
-  document.getElementById("image").src = imageSources[index];
+  document.getElementById("slideshow").src = imageSources[index];
   index++;
-} , 2000);
+} , 5000);
