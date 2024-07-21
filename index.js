@@ -163,3 +163,14 @@ function setRpcTimestamp(timestamp) {
     const format = n => n.toString().padStart(2, '0');
     update('#timestamp', `${hour ? `${format(hour)}:` : ''}${format(minute)}:${format(second)} ${timestamp > Date.now() ? 'left' : 'elapsed'}`);
 }
+
+var imageSources = ["https://raw.githubusercontent.com/kawaiicassie/waifu/main/1.png", "https://raw.githubusercontent.com/kawaiicassie/waifu/main/2.png", "https://raw.githubusercontent.com/kawaiicassie/waifu/main/3.png", "https://raw.githubusercontent.com/kawaiicassie/waifu/main/4.png"]
+
+var index = 0;
+setInterval (function(){
+  if (index === imageSources.length) {
+    index = 0;
+  }
+  document.getElementById("image").src = imageSources[index];
+  index++;
+} , 2000);
