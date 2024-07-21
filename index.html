@@ -232,7 +232,7 @@
             </div>
 
             <div class="widget" style="--columns: 4; --rows: 4; --m-columns: 4; --m-rows: 2;">
-                <img id= "slideshow" class="img" src="https://raw.githubusercontent.com/kawaiicassie/waifu/main/1.png">
+                <img id= "image" class="img" src="https://raw.githubusercontent.com/kawaiicassie/waifu/main/1.png">
             </div>
         </aside>
     </div>
@@ -243,6 +243,18 @@
 
     <script defer src="/index.js"></script>
     <script defer src="/min.js"></script>
+    <script>
+        var imageSources = ["https://raw.githubusercontent.com/kawaiicassie/waifu/main/1.png", "https://raw.githubusercontent.com/kawaiicassie/waifu/main/2.png", "https://raw.githubusercontent.com/kawaiicassie/waifu/main/3.png", "https://raw.githubusercontent.com/kawaiicassie/waifu/main/4.png"]
+
+        var index = 0;
+        setInterval (function(){
+            if (index === imageSources.length) {
+                index = 0;
+            }
+            document.getElementById("image").src = imageSources[index];
+                index++;
+            } , 5000);
+    </script>
 </body>
 
 </html>
