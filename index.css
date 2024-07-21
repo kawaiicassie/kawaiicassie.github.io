@@ -287,9 +287,11 @@ main {
     object-fit: cover;
     cursor: not-allowed;
 }
-.widget .image img {
-    animation: fadeIn 1s ease;
-}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
 
 @media (width < 880px) {
     .widget[style*='--m-'] {
@@ -297,7 +299,7 @@ main {
         --r: var(--m-rows, 2);
     }
 }
-@keyframes fadeIn {
+@keyframes fade {
     0% {
         opacity: 0;
     }
