@@ -82,7 +82,7 @@ header section {
 
 h1 {
     -webkit-mask: linear-gradient(to right, #fff 45%, transparent 55%) 0 0/220% 100% no-repeat;
-    animation: 2s ease-in-out 1.9s both bio;
+    animation: 1s ease-in-out 1.9s both bio;
     color: #fff;
     font-weight: bold;
     font-size: clamp(55px, 3vmin, 25px);
