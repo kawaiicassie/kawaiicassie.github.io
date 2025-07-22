@@ -21,8 +21,10 @@ img {
 background-image: url('/assets/bg4.png');
 background-repeat: repeat-y;
 background-position: top right;
-width: 220px;
+width: 15vw;
 height: 100%;
+min-width: 200px;
+max-width: 250px;
 position: fixed;
 top: 0;
 left: 0;
@@ -47,15 +49,33 @@ opacity: 0.9;
 }
 
 .desc{
-background-image: url(/assets/font_m.png);
-background-repeat: no-repeat;
-background-size: 190px;
-min-height: 125px;
-padding: 17px;
-font-size: 16px;
-text-align: center;
-}
+    background-image: url(/assets/font_m.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* 2. QUAN TRỌNG: Buộc ảnh nền luôn lấp đầy container */
+    background-size: 100% 100%;
 
+    /* 3. QUAN TRỌNG: Đặt tỷ lệ khung hình (rộng/cao) cho container */
+    /*    (Hãy điều chỉnh tỷ lệ này cho khớp với ảnh nền của bạn) */
+    aspect-ratio: 290 / 175;
+
+    /* 4. Căn giữa container trong sidebar */
+    max-width: 290px;
+    margin: 0 auto;
+
+    /* 5. Dùng flexbox để căn giữa văn bản bên trong */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.desc p {
+    /* 6. Giới hạn chiều rộng của văn bản để nó không chạm vào mép ảnh */
+    max-width: 80%;
+    text-align: center;
+    font-size: 1rem;
+    /* Reset padding vì chúng ta đã kiểm soát nó ở container cha */
+    padding: 0;
+}
 .sideheaders{
 background-image: url(/assets/line1.png);
 background-repeat: no-repeat;
@@ -64,11 +84,17 @@ background-position-y: center;
 }
 
 .nav {
-font-family: 'Love Ya Like A Sister', serif;
-font-weight: normal;
-font-size: 28px;
-background-color: #E0C4C1;
-width: 116px;
+    font-family: 'Love Ya Like A Sister', serif;
+    font-weight: normal;
+    font-size: 28px;
+    background-color: #E0C4C1;
+
+    /* --- THAY ĐỔI CHÍNH Ở ĐÂY --- */
+    display: inline-block; /* 1. Hộp sẽ tự co lại theo nội dung */
+    padding: 2px 10px;    /* 2. Thêm đệm cho hiệu ứng subtitle */
+    
+    /* Xóa thuộc tính width cố định không còn cần thiết */
+    /* width: 116px; */ 
 }
 
 .side ul{
@@ -84,7 +110,8 @@ list-style-position: inside;
 .container{
 display: flex;
 flex-direction: column;
-margin-left: 200px;
+margin-left: 15vw;
+min-margin-left: 200px; /* Đây không phải là thuộc tính thật, bạn cần điều chỉnh trong media query hoặc dùng Grid layout */
 }
 
 .headerwrapper{
@@ -103,7 +130,9 @@ margin-left: -0.5rem;
 }
 
 .headerimg{
-width: 285px;
+width: 35%; /* Cho phép ảnh co giãn theo chiều rộng của container */
+max-width: 285px; /* Đảm bảo ảnh không bị vỡ/pixelated khi container quá lớn */
+height: auto; /* Giữ đúng tỷ lệ ảnh */
 align-self: end;
 margin-right: -1rem;
 margin-bottom: -1.5rem;
@@ -152,30 +181,59 @@ height: 80px;
 
 .right{
 padding: 1rem;
+flex-grow: 1;
+/* Thêm thuộc tính này để ngăn .right co lại nhỏ hơn nội dung của nó */
+min-width: 0;
 }
 .right h3 {
+    /* 1. Áp dụng trực tiếp ảnh nền */
+    background-image: url('/assets/h4.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Buộc ảnh nền luôn lấp đầy phần tử */
+
+    /* 2. Đặt tỷ lệ khung hình CỐ ĐỊNH (dựa trên kích thước ảnh 290x70) */
+    aspect-ratio: 290 / 70;
+
+    /* 3. Đặt kích thước linh hoạt cho container */
+    width: 70%; /* Cho phép nó co giãn theo container cha */
+    max-width: 290px; /* Nhưng không bao giờ rộng hơn kích thước gốc của ảnh */
+
+    /* 4. Dùng flexbox để căn chỉnh văn bản bên trong */
+    display: flex;
+    align-items: center; /* Căn giữa văn bản theo chiều dọc */
+    
+    /* 5. Đặt đệm để văn bản không chạm vào mép của frame ảnh */
+    padding: 0.5rem 1rem 0.5rem 5.6rem; /* Cú pháp: top right bottom left */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước tổng thể */
+
+    /* 6. Reset các thuộc tính cũ không còn cần thiết */
+    min-height: auto;
     font-family: 'Love Ya Like A Sister', serif;
     font-weight: normal;
     font-size: 23px;
-    background-image: url('/assets/h4.png');
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 290px 70px;
-    min-height: 70px;
-    min-width: 290px; /* Thêm: Đảm bảo chiều rộng tối thiểu bằng chiều rộng ảnh nền */
-    padding-left: 100px; /* Điều chỉnh để văn bản không đè lên ảnh */
-    margin-bottom: 0.5rem; /* Thêm khoảng cách dưới tiêu đề */
-    display: flex;
-    align-items: center;
+    margin-bottom: 0.5rem;
 }
 .right h2 {
-    background-image: url(assets/ribbon1.png);
-    background-repeat: no-repeat;
+    position: relative; /* 1. Tạo bối cảnh định vị cho pseudo-element */
     display: flex;
-    flex-direction: row;
-    padding-left: 40px;
-    background-position: left center;
+    align-items: center;
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    min-height: 0;
+    padding-left: 3.4rem; /* 2. Đặt padding CỐ ĐỊNH */
+}
+/* Pseudo-element cho ảnh nền của H2 */
+.right h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3rem; /* 3. Đặt chiều rộng CỐ ĐỊNH */
+    height: 100%;
+    background-image: url('/assets/ribbon1.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
 }
 a{
 color: #9D4155;
@@ -244,28 +302,31 @@ padding-bottom: 0.5rem;
 
 /* 3. Sửa lỗi hiển thị cho tiêu đề h3 */
 .right h3{
-font-size: 1.1rem;
-background-size: 220px 50px; /* Điều chỉnh kích thước nền cho di động */
-min-height: 50px;
-min-width: 0; /* QUAN TRỌNG: Reset chiều rộng tối thiểu để không bị cắt */
-padding-left: 80px;
-margin-bottom: 0.5rem;
-box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
-width: 100%;
- }
-
+    width: 70%; /* Cho phép nó rộng hơn một chút trên màn hình nhỏ */
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem 0.5rem 4.5rem;
+}
+.right h2{
+    padding-left: 14%;
+    font-size: 1.1rem;
+}
+.right p{
+    font-size: 1rem; /* Giảm kích thước chữ cho di động */
+}
 /* 4. Làm cho thanh tiến trình Discord co giãn */
 .bar-container {
 width: 80%; /* Cho phép thanh co giãn theo chiều rộng */
 max-width: 250px; /* Giới hạn chiều rộng tối đa để không quá dài */
 }
 .sidebg{
-background-image: none;
-position: relative;
-top: 0;
-margin-bottom: 1rem;
-width: 100%;
-height: auto;
+    background-image: none;
+    position: relative;
+    top: 0;
+    margin-bottom: 1rem;
+    width: 100%;
+    height: auto;
+    /* 2. Reset max-width để .sidebg có thể chiếm toàn bộ màn hình điện thoại */
+    max-width: none;
 }
 .side{
 height: auto;
@@ -274,17 +335,6 @@ text-align: center;
 padding: 1rem;
 border-radius: 10px;
 border: 3px dashed;
-}
-.desc{
-font-size: 1rem;
-background-size: auto;
-background-position: center;
-/* Đặt chiều cao tối đa cho box */
-max-height: 250px; 
-/* Thêm thanh cuộn khi nội dung dài hơn */
-overflow-y: auto; 
-padding: 65px;
-/* min-height: 200px; <-- Thay thế dòng này */
 }
 .side ul{
 padding: 0;
@@ -305,8 +355,19 @@ width: 180px;
 font-size: 36px;
 margin: 0;
 }
+.sideheaders {
+    /* Thêm thuộc tính này để căn giữa các phần tử con inline-block */
+    text-align: center;
+}
+.desc p {
+    font-size: 1.3rem;
+}
 .nav {
-place-self: center;
+    /* 2. Thêm một chút đệm để nền không quá sát chữ (hiệu ứng phụ đề) */
+    padding: 2px 8px;
+    font-size: 1.5rem;
+    /* Các thuộc tính cũ không cần nữa và có thể xóa */
+    /* width: auto; */
 }
 #timezone {
     text-align: center;
@@ -335,7 +396,7 @@ place-self: center;
 .discord-status {
     display: flex;
     flex-direction: column; /* Xếp các mục con theo chiều dọc */
-    align-items: center;   /* Căn giữa các mục con theo chiều ngang */
+    align-items: stretch;   /* Căn giữa các mục con theo chiều ngang */
     gap: 0.5rem;           /* Tạo khoảng cách giữa ảnh, text, và thanh thời gian */
 }
 
@@ -371,11 +432,13 @@ place-self: center;
     font-size: 13px;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
+    /* 3. Buộc thanh tiến trình chiếm toàn bộ chiều rộng có sẵn */
+    width: 100%;
 }
 
 .bar-container {
-    /* flex-grow: 1; <-- Xóa thuộc tính này */
-    width: 150px; /* Đặt chiều rộng cố định cho thanh chạy */
+    width: 60%; /* Cho phép nó co giãn */
+    max-width: 250px; /* Nhưng không được quá dài trên màn hình lớn */
     position: relative;
     height: 16px;
     display: flex;
@@ -429,7 +492,7 @@ place-self: center;
 }
 
 #back-to-top-btn img {
-    width: 72px; /* Điều chỉnh kích thước ảnh nơ */
+    width: clamp(50px, 10vw, 80px);
     height: auto;
 }
 
