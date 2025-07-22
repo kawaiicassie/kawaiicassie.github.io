@@ -1,3 +1,10 @@
+<script>
+    // Nếu trang này được tải trực tiếp (không có #main-content),
+    // hãy chuyển hướng về trang chủ với đường dẫn chính xác.
+    if (!window.top.document.getElementById('main-content')) {
+        window.top.location.href = `/?path=${window.location.pathname}`;
+    }
+</script>
 <!-- POST START -->
 <div class="box">
 
