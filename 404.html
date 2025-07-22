@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>cherrybie - redirecting...</title>
-  <script>
-    const path = window.location.pathname;
+  <head>
+    <meta charset="utf-8">
+    <title>cherrybie - redirecting...</title>
+    <script>
+      const path = window.location.pathname;
 
-    // KIỂM TRA NGOẠI LỆ: Nếu đường dẫn dành cho xác thực, không chuyển hướng.
-    if (path.startsWith('/.well-known/')) {
-      // Không làm gì cả, để trình duyệt hiển thị lỗi 404 mặc định nếu tệp không tồn tại.
-    } else {
-      // Logic chuyển hướng SPA cũ của chúng ta
-      if (sessionStorage.getItem('redirect') === null) {
-        sessionStorage.setItem('redirect', 'true');
-        window.location.replace(`/?path=${path}`);
+      // KIỂM TRA NGOẠI LỆ: Nếu đường dẫn dành cho xác thực, không chuyển hướng.
+      if (path.startsWith('/.well-known/')) {
+        // Không làm gì cả, để trình duyệt hiển thị lỗi 404 mặc định nếu tệp không tồn tại.
       } else {
-        sessionStorage.removeItem('redirect');
-        window.location.replace('/404-content.html');
+        // Logic chuyển hướng SPA cũ của chúng ta
+        if (sessionStorage.getItem('redirect') === null) {
+          sessionStorage.setItem('redirect', 'true');
+          window.location.replace(`/?path=${path}`);
+        } else {
+          sessionStorage.removeItem('redirect');
+          window.location.replace('/404-content.html');
+        }
       }
-    }
-  </script>
-</head>
-<body>
-  <div class="box">
-    <!-- POST ICON AND DATE  -->
-    <div class="left">
-        <img class="icon" src="/assets/doggu.gif">
-        <p>redirect</p>
-    </div>
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <!-- POST ICON AND DATE  -->
+      <div class="left">
+          <img class="icon" src="/assets/doggu.gif" alt="avatar">
+          <p>redirect</p>
+      </div>
 
-    <!-- POST TEXT -->
-    <div class="right">
-        <h3>Redirecting - Đang chuyển hướng...</h3>
-        <p>Nếu bạn không được chuyển hướng tự động, vui lòng click vào <a href="/">đây</a>.</p>
-        <br>
-        <p>If you are not redirected automatically, please click <a href="/">here</a>.</p>
-    </div>
-</div>
-  
-</body>
+      <!-- POST TEXT -->
+      <div class="right">
+          <h3>redirecting...</h3>
+          <p>Nếu bạn không được chuyển hướng tự động, vui lòng click vào <a href="/">đây</a>.</p>
+          <br>
+          <p>If you are not redirected automatically, please click <a href="/">here</a>.</p>
+      </div>
+  </div>
+    
+  </body>
 </html>
