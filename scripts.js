@@ -115,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     // 4. Sửa đổi khối mã tải trang AJAX
-     // 4. Sửa đổi khối mã tải trang AJAX
     const mainContent = document.getElementById('main-content');
     const loadContent = async (url) => {
         try {
