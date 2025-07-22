@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Nếu trang không tồn tại (lỗi 404), tải nội dung của trang 404.html
             if (!response.ok && response.status === 404) {
-                const response404 = await fetch('/404.html');
+                const response404 = await fetch('/404-content.html'); // Sửa thành 404-content.html
                 if (!response404.ok) throw new Error('Không thể tải trang 404 tùy chỉnh.');
                 const newContent = await response404.text();
                 mainContent.innerHTML = newContent;
@@ -138,7 +138,28 @@ document.addEventListener("DOMContentLoaded", function() {
             else {
                 const newContent = await response.text();
                 mainContent.innerHTML = newContent;
-                document.title = url.split('/').pop().split('.')[0].replace('-content', '') || 'cherrybie';
+
+                // --- BẮT ĐẦU: LOGIC ĐẶT TIÊU ĐỀ NÂNG CAO ---
+                const siteName = 'cherrybie';
+
+                // Trường hợp 1: Đây là một bài viết blog
+                if (url.includes('/blogposts/')) {
+                    const postTitleElement = mainContent.querySelector('.right h2');
+                    if (postTitleElement) {
+                        const postTitle = postTitleElement.textContent.trim();
+                        document.title = `${postTitle} - ${siteName}`;
+                    } else {
+                        // Fallback cho bài blog không có h2
+                        document.title = `blog post - ${siteName}`;
+                    }
+                }
+                // Trường hợp 2: Các trang khác (home, about, etc.)
+                else {
+                    let pageName = url.split('/').pop().split('.')[0].replace('-content', '');
+                    if (pageName === '' || pageName === 'index') pageName = 'home'; // Mặc định cho trang gốc
+                    document.title = `${pageName} - ${siteName}`;
+                }
+                // --- KẾT THÚC: LOGIC ĐẶT TIÊU ĐỀ NÂNG CAO ---
 
                 // Gọi các hàm cập nhật dữ liệu cho trang chủ
                 if (url.includes('home.html')) {
