@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>cherrybie - redirecting...</title>
+  <script>
+    // Lấy đường dẫn mà người dùng muốn truy cập
+    const path = window.location.pathname;
+
+    // Chuyển hướng về trang index.html và truyền đường dẫn gốc qua một tham số URL
+    // Chúng ta cũng dùng sessionStorage để tránh vòng lặp chuyển hướng vô tận
+    if (sessionStorage.getItem('redirect') === null) {
+      sessionStorage.setItem('redirect', 'true');
+      window.location.replace(`/?path=${path}`);
+    } else {
+      // Nếu đã chuyển hướng một lần mà vẫn lỗi, có thể trang thực sự không tồn tại
+      // Chuyển đến trang 404-content.html
+      sessionStorage.removeItem('redirect');
+      window.location.replace('/404-content.html');
+    }
+  </script>
+</head>
+<body>
+  <p>If you are not redirected automatically, follow this <a id="link" href="#">link</a>.</p>
+</body>
+</html>

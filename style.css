@@ -1,0 +1,450 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body{
+background-image: url('/assets/bg1.png');
+background-color: #E0C4C1;
+margin: 7%;
+font-family: 'Alegreya', sans-serif;
+font-size: 17px;
+color: #967e68;
+}
+
+img {
+    pointer-events: none;
+}
+
+.sidebg{
+background-image: url('/assets/bg4.png');
+background-repeat: repeat-y;
+background-position: top right;
+width: 220px;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+}
+
+.side{
+background-image: url(/assets/bg4.png);
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    text-align: left;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.avatar{
+border-radius: 10px;
+width: 100%;
+opacity: 0.9;
+}
+
+.desc{
+background-image: url(/assets/font_m.png);
+background-repeat: no-repeat;
+background-size: 190px;
+min-height: 125px;
+padding: 17px;
+font-size: 16px;
+text-align: center;
+}
+
+.sideheaders{
+background-image: url(/assets/line1.png);
+background-repeat: no-repeat;
+background-size: contain;
+background-position-y: center;
+}
+
+.nav {
+font-family: 'Love Ya Like A Sister', serif;
+font-weight: normal;
+font-size: 28px;
+background-color: #E0C4C1;
+width: 116px;
+}
+
+.side ul{
+padding-left: 1rem;
+}
+
+.side li{
+list-style-image: url('/assets/star3.gif');
+font-size: 16px;
+list-style-position: inside;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+margin-left: 200px;
+}
+
+.headerwrapper{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+}
+
+.title{
+font-family: 'Love Ya Like A Sister', serif;
+font-weight: normal;
+color: #8f7c66;
+font-size: 46px;
+align-self: end;
+margin-left: -0.5rem;
+}
+
+.headerimg{
+width: 285px;
+align-self: end;
+margin-right: -1rem;
+margin-bottom: -1.5rem;
+position: relative;
+z-index: 1;
+}
+
+.boxgap{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.box{
+display: flex;
+flex-direction: row;
+background-image: url('/assets/bg4.png');
+border: 3px dashed #967e68;
+border-radius: 10px;
+position: relative; /* Thêm thuộc tính này */
+}
+/* Thêm khối mã này sau quy tắc .box */
+.box::after {
+content: '';
+position: absolute;
+width: 91px; /* Điều chỉnh chiều rộng của nơ */
+height: 51px; /* Điều chỉnh chiều cao của nơ */
+background-image: url('/assets/ribbon4-1.png'); /* Thay bằng đường dẫn đến ảnh nơ của bạn */
+background-size: contain;
+background-repeat: no-repeat;
+right: 2.5rem;
+bottom: 0;
+transform: translate(50%, 50%); /* Căn giữa nơ trên góc */
+}
+.left{
+border-right: 3px solid #967e68;
+padding: 0.7rem;
+text-align: center;
+}
+
+.icon{
+border: 2px solid #967E68;
+width: 80px;
+height: 80px;
+}
+
+.right{
+padding: 1rem;
+}
+.right h3 {
+    font-family: 'Love Ya Like A Sister', serif;
+    font-weight: normal;
+    font-size: 23px;
+    background-image: url('/assets/h4.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 290px 70px;
+    min-height: 70px;
+    min-width: 290px; /* Thêm: Đảm bảo chiều rộng tối thiểu bằng chiều rộng ảnh nền */
+    padding-left: 100px; /* Điều chỉnh để văn bản không đè lên ảnh */
+    margin-bottom: 0.5rem; /* Thêm khoảng cách dưới tiêu đề */
+    display: flex;
+    align-items: center;
+}
+.right h2 {
+    background-image: url(assets/ribbon1.png);
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    padding-left: 40px;
+    background-position: left center;
+    margin-bottom: 0.5rem;
+}
+a{
+color: #9D4155;
+text-decoration: none;
+font-weight: bold;
+
+}
+
+a:visited{
+color: #a8cbbb;
+font-weight: bold;
+font-style: italic;
+}
+
+a:hover{
+font-style: italic;
+text-shadow: 5px 5px 20px rgb(174 65 85 / 50%);
+}
+
+a:active{
+font-style: italic;
+font-weight: normal;
+}
+
+::-webkit-scrollbar{
+width: 5px; 
+}
+    
+::-webkit-scrollbar-track{
+background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+background-color: #9D4155;
+}
+
+#credit{
+font-size: 12px;
+position: fixed;
+bottom: 0;
+left: 0;
+}
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 10vh;
+    height: 12vh;
+}
+@media(max-width:760px){
+body{
+margin: 0;
+padding: 1rem;
+}
+.box {
+flex-direction: column;
+}
+
+/* 2. Ngăn cách giữa các phần trong box */
+.left {
+border-right: none; /* Xóa viền phải */
+border-bottom: 2px dashed #967e68; /* Thêm viền dưới để ngăn cách */
+margin-bottom: 0.5rem;
+padding-bottom: 0.5rem;
+    }
+
+/* 3. Sửa lỗi hiển thị cho tiêu đề h3 */
+.right h3{
+font-size: 1.1rem;
+background-size: 220px 50px; /* Điều chỉnh kích thước nền cho di động */
+min-height: 50px;
+min-width: 0; /* QUAN TRỌNG: Reset chiều rộng tối thiểu để không bị cắt */
+padding-left: 80px;
+margin-bottom: 0.5rem;
+box-sizing: border-box; /* Đảm bảo padding không làm vỡ layout */
+width: 100%;
+ }
+
+/* 4. Làm cho thanh tiến trình Discord co giãn */
+.bar-container {
+width: 80%; /* Cho phép thanh co giãn theo chiều rộng */
+max-width: 250px; /* Giới hạn chiều rộng tối đa để không quá dài */
+}
+.sidebg{
+background-image: none;
+position: relative;
+top: 0;
+margin-bottom: 1rem;
+width: 100%;
+height: auto;
+}
+.side{
+height: auto;
+width: 100%;
+text-align: center;
+padding: 1rem;
+border-radius: 10px;
+border: 3px dashed;
+}
+.desc{
+font-size: 1rem;
+background-size: auto;
+background-position: center;
+/* Đặt chiều cao tối đa cho box */
+max-height: 250px; 
+/* Thêm thanh cuộn khi nội dung dài hơn */
+overflow-y: auto; 
+padding: 65px;
+/* min-height: 200px; <-- Thay thế dòng này */
+}
+.side ul{
+padding: 0;
+display: flex;
+flex-direction: column;
+}
+.avatar{
+width: 50%;
+margin: 0 auto;
+}
+.container{
+margin: 0;
+}
+.headerimg{
+width: 180px;
+}
+.title{
+font-size: 36px;
+margin: 0;
+}
+.nav {
+place-self: center;
+}
+#timezone {
+    text-align: center;
+}
+.footer {
+    align-items: center;
+    padding-top: 5vh;
+    height: 12vh;
+}
+}
+/* Thêm vào cuối tệp style.css của bạn */
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.status-indicator.online { background-color: #4b8; } /* Xanh lá */
+.status-indicator.idle { background-color: #fa1; } /* Vàng */
+.status-indicator.dnd { background-color: #f44; } /* Đỏ */
+.status-indicator.offline { background-color: #778; } /* Xám */
+
+.discord-status {
+    display: flex;
+    flex-direction: column; /* Xếp các mục con theo chiều dọc */
+    align-items: center;   /* Căn giữa các mục con theo chiều ngang */
+    gap: 0.5rem;           /* Tạo khoảng cách giữa ảnh, text, và thanh thời gian */
+}
+
+.discord-main-content {
+
+}
+
+#discord-activity {
+    text-align: center;
+    margin-top: 0.7rem; /* Tạo khoảng cách với ảnh ở trên */
+}
+
+#discord-asset-container {
+    text-align: center;
+}
+
+/* Sửa đổi quy tắc cho ảnh asset */
+.discord-asset-image {
+    max-width: 100%;      /* Cho phép ảnh co giãn */
+    max-height: 150px;    /* Giới hạn chiều cao để không quá lớn */
+    border-radius: 8px;
+    box-shadow: 5px 5px 20px rgb(174 65 85 / 50%);
+    /* Xóa các thuộc tính 'float' và 'margin-right' nếu có */
+}
+
+/* Sửa đổi quy tắc cho thanh thời gian */
+.discord-progress-bar {
+    /* clear: both; <-- Xóa thuộc tính này */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Căn giữa toàn bộ thanh */
+    gap: 0.5rem;
+    font-size: 13px;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.bar-container {
+    /* flex-grow: 1; <-- Xóa thuộc tính này */
+    width: 150px; /* Đặt chiều rộng cố định cho thanh chạy */
+    position: relative;
+    height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Sửa đổi quy tắc cho thời gian đã trôi qua */
+.discord-elapsed-time {
+    /* clear: both; <-- Xóa thuộc tính này */
+    text-align: center; /* Căn giữa văn bản */
+    font-size: 13px;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.bar-background {
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Chiều cao của đường kẻ */
+    background-color: #967e68;
+    opacity: 0.5;
+}
+
+.bar-scrubber {
+    position: absolute;
+    width: 16px;  /* Điều chỉnh cho vừa với ảnh ribbon1.png của bạn */
+    height: 16px; /* Điều chỉnh cho vừa với ảnh ribbon1.png của bạn */
+    transform: translateX(-50%); /* Căn giữa ảnh trên điểm tiến trình */
+}
+#statuscafe-time {
+    padding-top: 0.4rem;
+    font-size: 0.7rem;
+}
+
+.left p{
+    padding-bottom: 5px;
+}
+#back-to-top-btn {
+    display: none; /* Mặc định ẩn nút đi */
+    position: fixed; /* Giữ nút cố định trên màn hình */
+    bottom: 20px; /* Cách lề dưới 20px */
+    right: 30px; /* Cách lề phải 30px */
+    z-index: 99; /* Đảm bảo nút luôn nằm trên các phần tử khác */
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer; /* Biến con trỏ thành hình bàn tay */
+    padding: 0;
+    opacity: 0; /* Bắt đầu với trạng thái trong suốt */
+    transition: opacity 0.4s; /* Hiệu ứng mờ dần */
+}
+
+#back-to-top-btn img {
+    width: 72px; /* Điều chỉnh kích thước ảnh nơ */
+    height: auto;
+}
+
+/* Lớp này sẽ được JavaScript thêm vào để hiện nút */
+#back-to-top-btn.show {
+    display: block;
+    opacity: 1;
+}
+.right ul {
+    padding-left: 25px; /* Điều chỉnh giá trị này nếu cần */
+}
+.right li {
+    list-style-image: url(assets/star4.gif);
+    list-style-position: outside;
+}
+#timezone {
+    text-align: left;
+}
