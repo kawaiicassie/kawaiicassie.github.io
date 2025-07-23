@@ -116,8 +116,7 @@ list-style-position: inside;
 .container{
 display: flex;
 flex-direction: column;
-margin-left: 15vw;
-min-margin-left: 200px; /* Đây không phải là thuộc tính thật, bạn cần điều chỉnh trong media query hoặc dùng Grid layout */
+margin-left: clamp(200px, 15vw, 250px);
 }
 
 .headerwrapper{
@@ -149,7 +148,7 @@ z-index: 1;
 .boxgap{
 display: flex;
 flex-direction: column;
-gap: 1rem;
+gap: 1.5rem;
 }
 
 .box{
@@ -159,6 +158,11 @@ background-image: url('/assets/bg4.png');
 border: 3px dashed #967e68;
 border-radius: 10px;
 position: relative; /* Thêm thuộc tính này */
+/* Trạng thái ban đầu trước khi animation: trong suốt và bị đẩy xuống */
+opacity: 0;
+transform: translateY(30px);
+/* Hiệu ứng chuyển động mượt mà cho nhiều thuộc tính */
+transition: transform 0.6s ease-out, opacity 0.6s ease-out, box-shadow 0.3s ease-in-out;
 }
 /* Thêm khối mã này sau quy tắc .box */
 .box::after {
@@ -173,10 +177,25 @@ right: 2.5rem;
 bottom: 0;
 transform: translate(50%, 50%); /* Căn giữa nơ trên góc */
 }
+
+/* Lớp này sẽ được JavaScript thêm vào để kích hoạt animation */
+.box.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.box:hover {
+    transform: translateY(-5px); /* Nhấc box lên một chút */
+    box-shadow: 0 8px 25px rgba(157, 65, 95, 0.2); /* Thêm hiệu ứng đổ bóng */
+}
+
 .left{
 border-right: 3px solid #967e68;
 padding: 0.7rem;
 text-align: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 }
 
 .icon{
@@ -325,7 +344,6 @@ a.quotes-author {
 .right input{
     width: 100%; 
     box-sizing: border-box; 
-    resize: vertical;"
 }
 
 @media(max-width:760px){
@@ -448,10 +466,6 @@ margin: 0;
     flex-direction: column; /* Xếp các mục con theo chiều dọc */
     align-items: stretch;   /* Căn giữa các mục con theo chiều ngang */
     gap: 0.5rem;           /* Tạo khoảng cách giữa ảnh, text, và thanh thời gian */
-}
-
-.discord-main-content {
-
 }
 
 #discord-activity {
@@ -798,6 +812,34 @@ margin: 0;
     opacity: 1;
     transform: translateX(0);
 }
+
+/* --- BẮT ĐẦU: KIỂU DÁNG CHO TOOLTIP TÙY CHỈNH --- */
+#custom-tooltip {
+    position: fixed; /* Giữ cố định trên màn hình */
+    display: none; /* Mặc định ẩn */
+    background-color: #9D4155; /* Sao chép từ .copy-notification */
+    color: #fff;
+    padding: 8px 15px; /* Điều chỉnh kích thước cho phù hợp */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Alegreya', sans-serif;
+    font-size: 14px; /* Hơi nhỏ hơn thông báo */
+    z-index: 10000; /* Luôn nằm trên cùng */
+    pointer-events: none; /* Để không cản trở sự kiện chuột khác */
+    white-space: nowrap; /* Ngăn văn bản dài xuống dòng */
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Lớp 'show' để hiện tooltip */
+#custom-tooltip.show {
+    display: block;
+    opacity: 1;
+}
+
+/* --- KẾT THÚC: KIỂU DÁNG CHO TOOLTIP TÙY CHỈNH --- */
+
+
 .custom-audio-player {
     width: 100%;
     padding: 5px;
@@ -912,6 +954,7 @@ margin: 0;
     cursor: url('/assets/cursor2b.gif'), pointer;
     width: 26px; /* 16px icon + 10px padding */
     height: 26px;
+    filter: drop-shadow(0px 0px 6px white);
 }
 
 #theme-toggle-icon {
@@ -972,7 +1015,15 @@ body.dark-mode .guestbook textarea,
 body.dark-mode #diary-form input[type="password"] {
     background-color: #3a3535;
     color: #d1c7bd;
-    border-color: #d1c7bd;
+    border-color: #97908a;
+}
+
+body.darkmode .guestbook input[type="text"]:focus,
+body.darkmode .guestbook input[type="url"]:focus,
+body.darkmode .guestbook textarea:focus,
+body.darkmode #diary-form input[type="password"] {
+    border-color: #9e5867; /* Đổi màu viền sang màu nhấn */
+    box-shadow: 0 0 8px #ac728659;
 }
 
 body.dark-mode .guestbook ::placeholder {
@@ -989,3 +1040,99 @@ body.dark-mode .timezone {
 body.dark-mode .desc p {
     color: #2c2828;
 }
+
+/* --- BẮT ĐẦU: CSS CHO BLOG POST GENERATOR --- */
+
+#blog-generator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#blog-generator-form label {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+#blog-generator-form input[type="text"],
+#blog-generator-form textarea {
+    width: 100%;
+    background-color: #E0C4C1;
+    color: #967e68;
+    font-family: 'Alegreya', sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    border: 2px solid #967e68;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#blog-generator-form input[type="text"]:focus,
+#blog-generator-form textarea:focus {
+    outline: none;
+    border-color: #9D4155;
+    box-shadow: 0 0 8px #9d415f59;
+}
+
+#blog-generator-form button {
+    background-color: #9D4155;
+    color: #fff;
+    font-family: 'Love Ya Like A Sister', serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 1rem;
+    align-self: flex-start;
+}
+
+#blog-generator-form button:hover {
+    background-color: #8a3a4c;
+    transform: translateY(-2px);
+}
+
+#generator-output textarea {
+    width: 100%;
+    background-color: #3a3535;
+    color: #d1c7bd;
+    font-family: monospace;
+    font-size: 0.9rem;
+    padding: 10px;
+    border: 1px solid #967e68;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    white-space: pre;
+    word-wrap: normal;
+    overflow-x: auto;
+}
+
+.code-container {
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #5a5555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    font-family: 'Love Ya Like A Sister', serif;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.copy-btn:hover {
+    opacity: 1;
+    background-color: #9D4155;
+}
+
+/* --- KẾT THÚC: CSS CHO BLOG POST GENERATOR --- */

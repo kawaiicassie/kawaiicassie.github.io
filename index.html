@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Alegreya&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     </head>
     <body>
         <div id="notification-container"></div>
@@ -50,7 +51,6 @@
                         <source src="/assets/audio/Lilith.mp3" type="audio/mpeg">
                         trình duyệt không hỗ trợ audio.
                     </audio>
-
                     <!-- Các nút điều khiển tùy chỉnh của chúng ta -->
                     <div class="controls">
                         <button class="play-pause-btn">
@@ -74,6 +74,12 @@
                         </div>
                     </div>
                 </div>
+                <div class="sideheaders">
+                    <h2 class="nav">tools</h2>
+                </div>
+                <ul>
+                    <li><a href="/blog-generator.html" class="ajax-link">blog post generator</a></li>
+                </ul>
             </div>
         </div>
 
@@ -95,6 +101,11 @@
         <div id="credit">
             <a href="https://repth.neocities.org/index.html">©repth</a>
         </div>
+
+        <div id="custom-tooltip"></div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
         <script defer src="scripts.js"></script>
 
         <!-- THÊM NÚT CHUYỂN ĐỔI DARK MODE VÀO ĐÂY -->

@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return hashHex;
     }
 
-    // Hàm chính xử lý truy cập nhật ký
+    // Hàm chính xử lý truy cập cập nhật ký
     function handleDiaryAccess() {
         const passwordPrompt = document.getElementById('diary-password-prompt');
         // Sửa lại để nhắm đến placeholder
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const showDiary = async () => {
             try {
                 // 1. Tải nội dung từ tệp riêng
-                const response = await fetch('/diary-ctn.html');
+                const response = await fetch('/diary-content.html');
                 if (!response.ok) {
                     throw new Error('Không thể tải nội dung nhật ký.');
                 }
@@ -227,9 +227,124 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     // --- KẾT THÚC: LOGIC CHO NHẬT KÝ ---
+    // --- BẮT ĐẦU: LOGIC HIỆU ỨNG ĐỘNG KHI CUỘN TRANG ---
+    function setupScrollAnimations() {
+        const animatedElements = document.querySelectorAll('.box');
+        if (animatedElements.length === 0) return; // Thoát nếu không có box nào để tạo hiệu ứng
+
+        const observerOptions = {
+            root: null, // Quan sát so với khung nhìn của trình duyệt
+            rootMargin: '0px',
+            threshold: 0.1 // Kích hoạt khi 10% phần tử hiển thị
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // Nếu phần tử đi vào khung nhìn
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible'); // Thêm lớp để kích hoạt animation
+                    observer.unobserve(entry.target); // Ngừng quan sát sau khi đã hiển thị để tiết kiệm tài nguyên
+                }
+            });
+        }, observerOptions);
+                // Bắt đầu quan sát từng box
+        animatedElements.forEach(el => observer.observe(el));
+    }
 
     // 4. Sửa đổi khối mã tải trang AJAX
     const mainContent = document.getElementById('main-content');
+
+
+    // --- BẮT ĐẦU: LOGIC CHO BLOG POST GENERATOR ---
+    function setupBlogGenerator() {
+        const form = document.getElementById('blog-generator-form');
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // 1. Lấy dữ liệu từ form
+            const title = document.getElementById('post-title').value;
+            const date = document.getElementById('post-date').value;
+            const time = document.getElementById('post-time').value;
+            const icon = document.getElementById('post-icon').value;
+            const filename = document.getElementById('post-filename').value;
+            const summary = document.getElementById('post-summary').value;
+            const content = document.getElementById('post-content').value;
+
+            // 2. Tạo mã cho trang blog.html
+            const outputForBlogPage = `<!-- POST START -->
+<div class="box">
+    <div class="left">
+        <img class="icon" src="${icon}" alt="avatar">
+        <p>${date}</p>
+        <p><i>${time}</i></p>
+    </div>
+    <div class="right">
+        <h2>${title}</h2>
+        <p>${summary}</p>
+        <br>
+        <a href="/blogposts/${filename}.html" class="ajax-link">read more...</a>
+    </div>
+</div>
+<!-- POST END -->`;
+
+            // 3. Tạo mã cho tệp bài viết mới
+            const outputForPostFile = `<script>
+    if (!window.top.document.getElementById('main-content')) {
+        window.top.location.href = \`/?path=\${window.location.pathname}\`;
+    }
+<\/script>
+<!-- POST START -->
+<div class="box">
+    <div class="left">
+        <img class="icon" src="${icon}" alt="avatar">
+        <p>${date}</p>
+        <p><i>${time}</i></p>
+    </div>
+    <div class="right">
+        <h2>${title}</h2>
+        <hr>
+        ${content}
+        <br>
+        <a href="/blog.html" class="ajax-link">&larr; quay lại</a>
+    </div>
+</div>
+<!-- POST END -->`;
+
+            // 4. Hiển thị kết quả
+            const blogPageOutputEl = document.getElementById('output-for-blog-page');
+            const postFileOutputEl = document.getElementById('output-for-post-file');
+
+            blogPageOutputEl.textContent = outputForBlogPage;
+            postFileOutputEl.textContent = outputForPostFile;
+            
+            // Tô màu cú pháp cho các khối mã mới
+            hljs.highlightElement(blogPageOutputEl);
+            hljs.highlightElement(postFileOutputEl);
+
+            document.getElementById('output-filename').textContent = filename;
+            document.getElementById('generator-output').hidden = false;
+        });
+
+        // Thêm logic cho nút sao chép
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.classList.contains('copy-btn')) {
+                const targetId = e.target.dataset.targetId;
+                const codeElement = document.getElementById(targetId);
+                if (codeElement) {
+                    navigator.clipboard.writeText(codeElement.textContent).then(() => {
+                        showNotification('Đã sao chép mã vào clipboard!', 'success');
+                    }, (err) => {
+                        showNotification('Lỗi khi sao chép: ' + err, 'error');
+                    });
+                }
+            }
+        });
+    }
+    // --- KẾT THÚC: LOGIC CHO BLOG POST GENERATOR ---
+
+    // --- CẬP NHẬT HÀM loadContent ---
     const loadContent = async (url) => {
         try {
             mainContent.style.opacity = '0.5';
@@ -268,7 +383,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 // Trường hợp 2: Các trang khác (home, about, etc.)
                 else {
-                    let pageName = url.split('/').pop().split('.')[0].replace('-content', '');
+                    let pageName = url.split('/').pop().split('.')[0].replace('-content', '').replace(/-/g, ' ');
                     if (pageName === '' || pageName === 'index') pageName = 'home'; // Mặc định cho trang gốc
                     document.title = `${pageName} - ${siteName}`;
                 }
@@ -288,6 +403,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (url.includes('diary.html')) {
                     handleDiaryAccess();
                 }
+                if (url.includes('blog-generator.html')) {
+                    setupBlogGenerator();
+                }
+
+                // SAU KHI NỘI DUNG MỚI ĐƯỢC THÊM, KÍCH HOẠT ANIMATION
+                setupScrollAnimations();
             }
 
             mainContent.style.opacity = '1';
@@ -415,6 +536,64 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     // --- KẾT THÚC: LOGIC NÚT BACK TO TOP ---
+    // --- BẮT ĐẦU: LOGIC CHO TOOLTIP TÙY CHỈNH ---
+    const tooltipElement = document.getElementById('custom-tooltip');
+    
+    if (tooltipElement) {
+        // Tìm tất cả các phần tử có thuộc tính 'title'
+        const elementsWithTitle = document.querySelectorAll('[title]');
+
+        elementsWithTitle.forEach(el => {
+            let originalTitle = '';
+
+            // Khi di chuột vào
+            el.addEventListener('mouseenter', (e) => {
+                originalTitle = el.getAttribute('title');
+                if (originalTitle && originalTitle.trim() !== '') {
+                    // Tạm thời xóa title gốc để tránh tooltip của trình duyệt
+                    el.removeAttribute('title');
+                    
+                    // Cập nhật nội dung và hiển thị tooltip tùy chỉnh
+                    tooltipElement.textContent = originalTitle;
+                    tooltipElement.classList.add('show');
+                }
+            });
+
+            // Khi chuột di chuyển trên phần tử
+            el.addEventListener('mousemove', (e) => {
+                if (tooltipElement.classList.contains('show')) {
+                    // Cập nhật vị trí của tooltip theo con trỏ chuột
+                    const offsetX = 15; // Khoảng cách từ con trỏ theo trục X
+                    const offsetY = 15; // Khoảng cách từ con trỏ theo trục Y
+                    
+                    let x = e.clientX + offsetX;
+                    let y = e.clientY + offsetY;
+
+                    // Đảm bảo tooltip không bị tràn ra ngoài màn hình
+                    if (x + tooltipElement.offsetWidth > window.innerWidth) {
+                        x = e.clientX - tooltipElement.offsetWidth - offsetX;
+                    }
+                    if (y + tooltipElement.offsetHeight > window.innerHeight) {
+                        y = e.clientY - tooltipElement.offsetHeight - offsetY;
+                    }
+
+                    tooltipElement.style.left = `${x}px`;
+                    tooltipElement.style.top = `${y}px`;
+                }
+            });
+
+            // Khi di chuột ra
+            el.addEventListener('mouseleave', () => {
+                if (originalTitle) {
+                    // Ẩn tooltip tùy chỉnh
+                    tooltipElement.classList.remove('show');
+                    // Khôi phục lại title gốc cho phần tử
+                    el.setAttribute('title', originalTitle);
+                }
+            });
+        });
+    }
+    // --- KẾT THÚC: LOGIC CHO TOOLTIP TÙY CHỈNH ---
     // --- BẮT ĐẦU: LOGIC TRÌNH PHÁT ÂM THANH TÙY CHỈNH ---
     function setupCustomAudioPlayer() {
         const audio = document.getElementById('main-audio-player');

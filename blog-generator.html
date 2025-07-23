@@ -1,0 +1,57 @@
+<script>
+    // Nếu trang này được tải trực tiếp (không có #main-content),
+    // hãy chuyển hướng về trang chủ với đường dẫn chính xác.
+    if (!window.top.document.getElementById('main-content')) {
+        window.top.location.href = `/?path=${window.location.pathname}`;
+    }
+</script>
+<!-- POST START -->
+<div class="box">
+    <div class="right">
+        <h3>blog post generator</h3>
+        <p>Điền vào các trường dưới đây để tạo mã HTML cho bài viết mới của bạn.</p>
+        <hr>
+        <form id="blog-generator-form">
+            <label for="post-title">Tiêu đề bài viết:</label>
+            <input type="text" id="post-title" required placeholder="Bài viết đầu tiên">
+
+            <label for="post-date">Ngày đăng (DD/MM/YYYY):</label>
+            <input type="text" id="post-date" required placeholder="22/07/2025">
+
+            <label for="post-time">Giờ đăng (HH:MM):</label>
+            <input type="text" id="post-time" required placeholder="13:00">
+
+            <label for="post-icon">URL Icon:</label>
+            <input type="text" id="post-icon" value="/assets/doggu.gif" required>
+
+            <label for="post-filename">Tên tệp (không bao gồm .html):</label>
+            <input type="text" id="post-filename" required placeholder="22-07-2025-first-post">
+
+            <label for="post-summary">Tóm tắt (hiển thị trên trang blog chính):</label>
+            <textarea id="post-summary" rows="3" required placeholder="Đây là tóm tắt ngắn..."></textarea>
+
+            <label for="post-content">Nội dung đầy đủ (hỗ trợ HTML):</label>
+            <textarea id="post-content" rows="8" required placeholder="Đây là nội dung đầy đủ của bài viết. Ví dụ: <p>...</p>"></textarea>
+
+            <button type="submit">Tạo mã</button>
+        </form>
+        
+        <div id="generator-output" hidden>
+            <hr>
+            <h4>Mã cho trang <code>blog.html</code>:</h4>
+            <p>Dán đoạn mã này vào cuối tệp <code>blog.html</code> (trước bài viết cũ hơn).</p>
+            <div class="code-container">
+                <button class="copy-btn" data-target-id="output-for-blog-page" title="Sao chép mã">Copy</button>
+                <pre><code id="output-for-blog-page" class="language-html"></code></pre>
+            </div>
+
+            <h4>Mã cho tệp bài viết mới (<code>/blogposts/<span id="output-filename"></span>.html</code>):</h4>
+            <p>Tạo một tệp mới với tên ở trên và dán nội dung này vào.</p>
+            <div class="code-container">
+                <button class="copy-btn" data-target-id="output-for-post-file" title="Sao chép mã">Copy</button>
+                <pre><code id="output-for-post-file" class="language-html"></code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- POST END -->
