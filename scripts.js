@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // --- BẮT ĐẦU KHỐI MÃ TÁI CẤU TRÚC ---
     let lastDiscordData = null; // Biến để lưu trạng thái Discord cuối cùng
-
+    // --- THÊM CÁC BIẾN TRẠNG THÁI Ở ĐÂY ---
+    let isNavigating = false; // Cờ để ngăn điều hướng khi đang có một tiến trình chạy
+    let lastClickTime = 0;    // Biến để theo dõi thời gian click cuối cùng
     // 1. Hàm lấy dữ liệu Status.cafe (giữ nguyên)
     function fetchStatusCafeData() {
         fetch("https://status.cafe/users/ngc2237/status.json")
@@ -86,7 +88,27 @@ document.addEventListener("DOMContentLoaded", function() {
             activityEl.innerHTML = "Không có hoạt động nào.";
         }
     }
+    // --- BẮT ĐẦU: HÀM MỚI ĐỂ CẬP NHẬT TRÍCH DẪN NGẪU NHIÊN ---
+    function updateRandomQuote() {
+        const quoteDisplayEl = document.getElementById('quote-display');
+        const quoteAuthorEl = document.getElementById('quote-author');
 
+        // Chỉ chạy nếu các phần tử tồn tại trên trang
+        if (quoteDisplayEl && quoteAuthorEl) {
+            const quotes = [
+                "Blood on my shirt, roses in my hand, you're looking at me like you don't know who I am.",
+                "Perfect, em chỉ cần là chính em.",
+                "Trước cơn bão giông là một bầu trời bình yên.",
+                "Giờ người là cá, còn em là cả đại dương."
+            ];
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            quoteDisplayEl.innerText = randomQuote;
+            
+            // Ẩn phần tác giả đi thay vì chỉ xóa chữ, trông sẽ đẹp hơn
+            quoteAuthorEl.style.display = 'none'; 
+        }
+    }
     // 3. Thiết lập kết nối WebSocket cho Discord
     const lanyardUserId = '1159348783876931634';
     let socket = new WebSocket("wss://api.lanyard.rest/socket");
@@ -113,6 +135,98 @@ document.addEventListener("DOMContentLoaded", function() {
     socket.onerror = function(error) {
         console.error("Lỗi Lanyard WebSocket:", error);
     };
+    // --- BẮT ĐẦU: LOGIC CHO NHẬT KÝ (PHIÊN BẢN NÂNG CẤP) ---
+    // Hàm hiển thị thông báo chung, linh hoạt hơn
+    function showNotification(message, type = 'info') { // type có thể là 'info', 'success', 'error', 'warning'
+        const container = document.getElementById('notification-container');
+        if (!container) return;
+
+        const notif = document.createElement('div');
+        notif.classList.add(`${type}-notification`); // Dùng class tương ứng với type
+        notif.innerText = message;
+        container.appendChild(notif);
+
+        setTimeout(() => { notif.classList.add('show'); }, 10);
+
+        setTimeout(() => {
+            notif.classList.remove('show');
+            notif.addEventListener('transitionend', () => notif.remove());
+        }, 3000); // Tất cả thông báo sẽ biến mất sau 3 giây
+    }
+
+    // Sửa lại các hàm cũ để sử dụng hàm mới (cho gọn)
+    function showSuccessNotification(message) {
+        showNotification(message, 'success');
+    }
+    function showErrorNotification(message) {
+        showNotification(message, 'error');
+    }
+    // --- KẾT THÚC: NÂNG CẤP HỆ THỐNG THÔNG BÁO ---
+    // Hàm để tạo hash SHA-256 từ một chuỗi văn bản
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
+
+    // Hàm chính xử lý truy cập nhật ký
+    function handleDiaryAccess() {
+        const passwordPrompt = document.getElementById('diary-password-prompt');
+        // Sửa lại để nhắm đến placeholder
+        const diaryPlaceholder = document.getElementById('diary-content-placeholder'); 
+        const diaryForm = document.getElementById('diary-form');
+        const passwordInput = document.getElementById('diary-password-input');
+
+        if (!passwordPrompt || !diaryPlaceholder || !diaryForm) return;
+
+        const DIARY_PASSWORD_HASH = '844faa366b96553031a1ea2674c62bc4788969d984a7be00ea34f02686604992';
+        const isUnlocked = localStorage.getItem('diaryUnlocked') === 'true';
+
+        // --- VIẾT LẠI HOÀN TOÀN HÀM showDiary ---
+        const showDiary = async () => {
+            try {
+                // 1. Tải nội dung từ tệp riêng
+                const response = await fetch('/diary-ctn.html');
+                if (!response.ok) {
+                    throw new Error('Không thể tải nội dung nhật ký.');
+                }
+                const diaryHtml = await response.text();
+
+                // 2. Chèn nội dung vào placeholder
+                diaryPlaceholder.innerHTML = diaryHtml;
+
+                // 3. Xóa form mật khẩu đi
+                passwordPrompt.remove();
+            } catch (error) {
+                console.error(error);
+                diaryPlaceholder.innerHTML = '<p>Lỗi: Không thể hiển thị nội dung nhật ký. Vui lòng thử lại.</p>';
+            }
+        };
+
+        if (isUnlocked) {
+            showDiary();
+            return;
+        }
+
+        diaryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const enteredPassword = passwordInput.value;
+            const enteredPasswordHash = await sha256(enteredPassword);
+
+            if (enteredPasswordHash === DIARY_PASSWORD_HASH) {
+                localStorage.setItem('diaryUnlocked', 'true');
+                showSuccessNotification('Mở khóa thành công!');
+                // Không cần setTimeout nữa, gọi trực tiếp
+                showDiary(); 
+            } else {
+                showErrorNotification('Mật khẩu không chính xác!');
+                passwordInput.value = '';
+            }
+        });
+    }
+    // --- KẾT THÚC: LOGIC CHO NHẬT KÝ ---
 
     // 4. Sửa đổi khối mã tải trang AJAX
     const mainContent = document.getElementById('main-content');
@@ -167,6 +281,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         updateDiscordUI(lastDiscordData);
                     }
                 }
+                // THÊM ĐOẠN NÀY VÀO: Gọi hàm cập nhật trích dẫn khi trang about được tải
+                if (url.includes('about.html')) {
+                    updateRandomQuote();
+                }
+                if (url.includes('diary.html')) {
+                    handleDiaryAccess();
+                }
             }
 
             mainContent.style.opacity = '1';
@@ -180,9 +301,40 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener('click', (e) => {
         if (e.target.matches('.ajax-link')) {
             e.preventDefault();
+
+            // 1. KIỂM TRA SPAM CLICK
+            const now = Date.now();
+            if (now - lastClickTime < 2000) { // Nếu click chưa đến 2 giây sau lần trước
+                showNotification("Thao tác quá nhanh, vui lòng bình tĩnh!", 'warning');
+                return; // Dừng lại, không làm gì cả
+            }
+            
+            // 2. KIỂM TRA XEM CÓ ĐANG ĐIỀU HƯỚNG KHÔNG
+            if (isNavigating) {
+                return; // Nếu đang trong quá trình chuyển hướng, không làm gì cả
+            }
+
+            // 3. BẮT ĐẦU QUÁ TRÌNH ĐIỀU HƯỚNG
+            isNavigating = true; // Khóa lại, không cho phép click nữa
+            lastClickTime = now; // Cập nhật thời gian click cuối
             const url = e.target.href;
-            history.pushState({ path: url }, '', url);
-            loadContent(url);
+
+            // 4. HIỂN THỊ THÔNG BÁO "ĐANG CHUYỂN HƯỚNG"
+            showNotification("Đang chuyển hướng...", 'info');
+
+            // 5. TẠO ĐỘ TRỄ 2 GIÂY
+            setTimeout(async () => {
+                // 6. SAU 2 GIÂY, TẢI NỘI DUNG
+                await loadContent(url); // Chờ cho đến khi loadContent hoàn thành
+
+                // 7. LẤY TIÊU ĐỀ TRANG VÀ HIỂN THỊ THÔNG BÁO THÀNH CÔNG
+                // document.title đã được cập nhật bên trong loadContent
+                const pageTitle = document.title.split(' - ')[0]; // Lấy phần đầu của tiêu đề
+                showNotification(`Đã tải xong trang ${pageTitle}!`, 'success');
+
+                // 8. MỞ KHÓA ĐIỀU HƯỚNG
+                isNavigating = false; 
+            }, 2000); // 2000ms = 2 giây
         }
     });
 
@@ -210,6 +362,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- KẾT THÚC KHỐI MÃ TÁI CẤU TRÚC ---
+    // --- BẮT ĐẦU: LOGIC DARK MODE ---
+    const themeToggleButton = document.getElementById('theme-toggle-btn');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');
+    const THEME_KEY = 'user-theme';
+
+    // Hàm để áp dụng theme và lưu lựa chọn
+    const applyTheme = (theme) => {
+        if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggleIcon.src = '/assets/icon-sun.png';
+            localStorage.setItem(THEME_KEY, 'dark');
+        } else {
+            document.body.classList.remove('dark-mode');
+            themeToggleIcon.src = '/assets/moon.gif';
+            localStorage.setItem(THEME_KEY, 'light');
+        }
+    };
+
+    // Xử lý khi click vào nút
+    themeToggleButton.addEventListener('click', () => {
+        const currentThemeIsDark = document.body.classList.contains('dark-mode');
+        applyTheme(currentThemeIsDark ? 'light' : 'dark');
+    });
+
+    // Kiểm tra theme đã lưu hoặc theme hệ thống khi tải trang
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+        applyTheme(savedTheme); // Ưu tiên lựa chọn đã lưu của người dùng
+    } else if (prefersDark) {
+        applyTheme('dark'); // Nếu không có lựa chọn, dùng cài đặt của hệ thống
+    }
     // --- BẮT ĐẦU: LOGIC NÚT BACK TO TOP ---
     const backToTopBtn = document.getElementById("back-to-top-btn");
 
@@ -230,5 +415,151 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
     // --- KẾT THÚC: LOGIC NÚT BACK TO TOP ---
+    // --- BẮT ĐẦU: LOGIC TRÌNH PHÁT ÂM THANH TÙY CHỈNH ---
+    function setupCustomAudioPlayer() {
+        const audio = document.getElementById('main-audio-player');
+        const playBtn = document.getElementById('play-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const playPauseBtn = document.querySelector('.play-pause-btn');
+        const progressBar = document.querySelector('.progress-bar');
+        const progressThumb = document.querySelector('.progress-thumb');
+        const progressBarWrapper = document.querySelector('.progress-bar-wrapper');
+        const timeDisplay = document.querySelector('.time-display');
+        const volumeSlider = document.querySelector('.volume-slider');
 
+        if (!audio || !playPauseBtn || !progressBar || !progressThumb) return; // Thoát nếu không tìm thấy các phần tử
+
+        audio.volume = 0.8;
+        // Hàm định dạng thời gian (vd: 125 giây -> "2:05")
+        const formatTime = (seconds) => {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs.toString().padStart(2, '0')}`;
+        };
+
+        // Sự kiện click nút Play/Pause
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.classList.add('hidden');
+                pauseBtn.classList.remove('hidden');
+            } else {
+                audio.pause();
+                pauseBtn.classList.add('hidden');
+                playBtn.classList.remove('hidden');
+            }
+        });
+
+        // Cập nhật thanh tiến trình và thời gian khi nhạc chạy
+        audio.addEventListener('timeupdate', () => {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            progressThumb.style.left = `${progressPercent}%`;
+            timeDisplay.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+        });
+
+        // Tua nhạc khi click vào thanh tiến trình
+        progressBarWrapper.addEventListener('click', (e) => {
+            const width = progressBarWrapper.clientWidth;
+            const clickX = e.offsetX;
+            audio.currentTime = (clickX / width) * audio.duration;
+        });
+
+        // Cập nhật tổng thời gian khi metadata đã được tải
+        audio.addEventListener('loadedmetadata', () => {
+            timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
+        });
+
+        // Điều chỉnh âm lượng
+        volumeSlider.addEventListener('input', (e) => {
+            audio.volume = e.target.value;
+        });
+    }
+    setupCustomAudioPlayer(); // Gọi hàm để khởi tạo
+    // --- KẾT THÚC: LOGIC TRÌNH PHÁT ÂM THANH TÙY CHỈNH ---
+    // LOGIC RECORDER
+    const recorderBtn = document.querySelector('.recorder');
+    if (recorderBtn) {
+        let isRecording = false;
+        let recoder;
+        let stream;
+        recorderBtn.addEventListener('click', async () => {
+            if (!isRecording) {
+                stream = await navigator.mediaDevices.getDisplayMedia({ audio: true, video: { frameRate: { ideal: 60 } } });
+                recoder = new MediaRecorder(stream);
+                const [video] = stream.getVideoTracks();
+                recoder.start();
+                isRecording = true;
+                video.addEventListener('ended', () => { recoder.stop(); isRecording = false; });
+                recoder.addEventListener('dataavailable', e => {
+                    const a = document.createElement('a');
+                    a.href = URL.createObjectURL(e.data);
+                    a.download = 'watch if cute.webm';
+                    a.click();
+                });
+            } else {
+                recoder.stop();
+                stream.getTracks().forEach(track => track.stop());
+                isRecording = false;
+            }
+        });
+    }
+
+    // LOGIC KONAMI CODE
+    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    let konamiIndex = 0;
+    document.addEventListener('keydown', (e) => {
+        if (e.key === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                alert('Konami Activated!');
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
+    // --- BẮT ĐẦU: LOGIC THÔNG BÁO VÀ SỬA ĐỔI SAO CHÉP ---
+    document.addEventListener('copy', (event) => {
+        // --- BẮT ĐẦU: LOGIC SỬA ĐỔI NỘI DUNG SAO CHÉP ---
+        // 1. Lấy văn bản mà người dùng đã chọn
+        const selection = window.getSelection().toString();
+
+        // 2. Tạo chuỗi mới với thông tin bản quyền
+        // (Sử dụng URL đầy đủ sẽ tốt hơn cho việc trích dẫn nguồn)
+        const copyrightNotice = '\n\nNguồn: cherrybie - https://kawaiicassie.github.io';
+        const newText = selection + copyrightNotice;
+
+        // 3. Ngăn chặn hành động sao chép mặc định của trình duyệt
+        event.preventDefault();
+
+        // 4. Ghi dữ liệu mới của chúng ta vào clipboard
+        event.clipboardData.setData('text/plain', newText);
+        // --- KẾT THÚC: LOGIC SỬA ĐỔI NỘI DUNG SAO CHÉP ---
+
+
+        // --- LOGIC HIỂN THỊ THÔNG BÁO (giữ nguyên) ---
+        const container = document.getElementById('notification-container');
+        if (!container) return;
+
+        const notif = document.createElement('div');
+        notif.classList.add('copy-notification');
+        notif.innerText = 'Nội dung đã được sao chép!';
+
+        container.appendChild(notif);
+
+        setTimeout(() => {
+            notif.classList.add('show');
+        }, 10);
+
+        setTimeout(() => {
+            notif.classList.remove('show');
+            
+            notif.addEventListener('transitionend', () => {
+                notif.remove();
+            });
+        }, 3000);
+    });
+    // --- KẾT THÚC: LOGIC THÔNG BÁO VÀ SỬA ĐỔI SAO CHÉP ---
 });

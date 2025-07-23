@@ -4,6 +4,10 @@ margin: 0;
 padding: 0;
 }
 
+html {
+    cursor: url('/assets/cursor2.gif'), auto;
+}
+
 body{
 background-image: url('/assets/bg1.png');
 background-color: #E0C4C1;
@@ -31,7 +35,7 @@ left: 0;
 }
 
 .side{
-background-image: url(/assets/bg4.png);
+    background-image: url(/assets/bg4.png);
     width: 100%;
     height: 100%;
     padding: 1rem;
@@ -40,6 +44,8 @@ background-image: url(/assets/bg4.png);
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 .avatar{
@@ -86,7 +92,7 @@ background-position-y: center;
 .nav {
     font-family: 'Love Ya Like A Sister', serif;
     font-weight: normal;
-    font-size: 28px;
+    font-size: 20px;
     background-color: #E0C4C1;
 
     /* --- THAY ĐỔI CHÍNH Ở ĐÂY --- */
@@ -251,6 +257,7 @@ font-style: italic;
 a:hover{
 font-style: italic;
 text-shadow: 5px 5px 20px rgb(174 65 85 / 50%);
+cursor: url('/assets/cursor2b.gif'), pointer;
 }
 
 a:active{
@@ -261,7 +268,11 @@ font-weight: normal;
 ::-webkit-scrollbar{
 width: 5px; 
 }
-    
+
+.side::-webkit-scrollbar {
+    display: none;
+}
+
 ::-webkit-scrollbar-track{
 background-color: transparent;
 }
@@ -270,11 +281,15 @@ background-color: transparent;
 background-color: #9D4155;
 }
 
+::selection {
+  background-color: #9D4155;
+  color: #fff;
+}
 #credit{
 font-size: 12px;
 position: fixed;
 bottom: 0;
-left: 0;
+right: 0;
 }
 .footer {
     display: flex;
@@ -283,6 +298,36 @@ left: 0;
     padding-top: 10vh;
     height: 12vh;
 }
+
+.right q {
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-style: italic;
+    text-shadow: 0 0 10px rgb(157, 65, 95);
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+.right q::before, q::after {
+    font-size: 45px;
+    color: #9d415f59;
+}
+a.quotes-author {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.right input{
+    width: 100%; 
+    box-sizing: border-box; 
+    resize: vertical;"
+}
+
 @media(max-width:760px){
 body{
 margin: 0;
@@ -377,7 +422,12 @@ margin: 0;
     padding-top: 5vh;
     height: 12vh;
 }
+.right q {
+    font-size: 1.3rem;
+    text-align: center;
 }
+}
+
 /* Thêm vào cuối tệp style.css của bạn */
 .status-indicator {
     display: inline-block;
@@ -418,7 +468,7 @@ margin: 0;
     max-width: 100%;      /* Cho phép ảnh co giãn */
     max-height: 150px;    /* Giới hạn chiều cao để không quá lớn */
     border-radius: 8px;
-    box-shadow: 5px 5px 20px rgb(174 65 85 / 50%);
+    box-shadow: 0 0 20px rgb(174 65 85 / 50%);
     /* Xóa các thuộc tính 'float' và 'margin-right' nếu có */
 }
 
@@ -475,6 +525,8 @@ margin: 0;
 
 .left p{
     padding-bottom: 5px;
+    width: 80px;
+    height: auto;
 }
 #back-to-top-btn {
     display: none; /* Mặc định ẩn nút đi */
@@ -485,7 +537,7 @@ margin: 0;
     border: none;
     outline: none;
     background-color: transparent;
-    cursor: pointer; /* Biến con trỏ thành hình bàn tay */
+    cursor: url('/assets/cursor2b.gif'), pointer;
     padding: 0;
     opacity: 0; /* Bắt đầu với trạng thái trong suốt */
     transition: opacity 0.4s; /* Hiệu ứng mờ dần */
@@ -505,9 +557,435 @@ margin: 0;
     padding-left: 25px; /* Điều chỉnh giá trị này nếu cần */
 }
 .right li {
-    list-style-image: url(assets/star4.gif);
+    list-style-image: url('assets/star4.gif');
     list-style-position: outside;
 }
 #timezone {
     text-align: left;
+}
+/* Container chứa tất cả thông báo */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999; /* Đảm bảo nó luôn nằm trên cùng */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách nếu có nhiều thông báo cùng lúc */
+}
+
+/* Kiểu dáng của một thông báo đơn lẻ */
+.copy-notification {
+    background-color: #9D4155; /* Màu nền hợp với theme của bạn */
+    /* background-image: url('/assets/h4.png'); */
+    /* width: 100%; */
+    /* max-width: 290px; /* Giới hạn chiều rộng tối đa */
+    /* height: auto; */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Alegreya', sans-serif;
+    
+    /* Trạng thái ban đầu: ẩn và nằm bên ngoài màn hình bên phải */
+    opacity: 0;
+    transform: translateX(100%);
+    
+    /* Hiệu ứng chuyển động mượt mà */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Lớp 'show' để kích hoạt hiệu ứng trượt vào */
+.copy-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.guestbook input[type="text"],
+.guestbook input[type="url"],
+.guestbook textarea {
+    width: 100%;
+    background-color: #E0C4C1; /* Dùng màu nền chính của trang */
+    color: #967e68; /* Dùng màu chữ chính */
+    font-family: 'Alegreya', sans-serif; /* Đảm bảo dùng đúng font */
+    font-size: 1rem;
+    padding: 10px;
+    border: 2px solid #967e68; /* Dùng kiểu viền đặc trưng của trang */
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-bottom: 10px;
+}
+
+/* Sửa lỗi tràn viền và chỉ cho phép kéo theo chiều dọc */
+.guestbook textarea {
+    resize: vertical;
+    min-height: 120px; /* Đặt chiều cao tối thiểu */
+}
+
+/* Thay đổi giao diện khi người dùng click vào ô nhập liệu */
+.guestbook input[type="text"]:focus,
+.guestbook input[type="url"]:focus,
+.guestbook textarea:focus {
+    outline: none; /* Xóa viền mặc định của trình duyệt */
+    border-color: #9D4155; /* Đổi màu viền sang màu nhấn */
+    box-shadow: 0 0 8px #9d415f59; /* Thêm hiệu ứng đổ bóng nhẹ */
+}
+
+/* Tạo kiểu cho chữ placeholder */
+.guestbook ::placeholder {
+    color: #000000a6;
+    opacity: 0.7;
+}
+
+/* Tạo kiểu cho nút Submit */
+.guestbook input[type="submit"] {
+    background-color: #9D4155;
+    color: #fff;
+    font-family: 'Love Ya Like A Sister', serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hiệu ứng khi di chuột qua nút Submit */
+.guestbook input[type="submit"]:hover {
+    background-color: #8a3a4c; /* Làm màu nền tối đi một chút */
+    transform: translateY(-2px); /* Tạo hiệu ứng nhấc lên */
+}
+.right hr {
+    /* 1. Xóa bỏ đường kẻ mặc định của trình duyệt */
+    border: 0;
+    
+    /* 2. Đặt chiều cao của thẻ <hr> bằng với chiều cao của ảnh */
+    height: 13px;
+    
+    /* 3. Sử dụng hình ảnh của bạn làm nền */
+    background-image: url('/assets/divider1.gif');
+    
+    /* 4. QUAN TRỌNG: Cho phép ảnh lặp lại theo chiều ngang */
+    background-repeat: repeat-x;
+    
+    /* (Tùy chọn) Căn giữa ảnh nền theo chiều dọc nếu cần */
+    background-position: center;
+    margin: 1em 0;
+}
+.right hr.hr2 {
+    /* 2. Đặt chiều cao của thẻ <hr> bằng với chiều cao của ảnh */
+    height: 13px;
+    
+    /* 3. Sử dụng hình ảnh của bạn làm nền */
+    background-image: url('/assets/line1.png');
+    
+    /* 4. QUAN TRỌNG: Cho phép ảnh lặp lại theo chiều ngang */
+    background-repeat: repeat-x;
+    
+    /* (Tùy chọn) Căn giữa ảnh nền theo chiều dọc nếu cần */
+    background-position: center;
+    margin: 1em 0;
+}
+#diary-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Căn các mục về bên trái */
+    gap: 1rem;
+}
+
+#diary-form input[type="password"] {
+    width: 100%;
+    max-width: 300px; /* Giới hạn chiều rộng để không quá dài */
+    background-color: #E0C4C1;
+    color: #967e68;
+    font-family: 'Alegreya', sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+    border: 2px solid #967e68;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#diary-form input[type="password"]:focus {
+    outline: none;
+    border-color: #9D4155;
+    box-shadow: 0 0 8px #9d415f59;
+}
+
+#diary-form button {
+    background-color: #9D4155;
+    color: #fff;
+    font-family: 'Love Ya Like A Sister', serif;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 25px;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#diary-form button:hover {
+    background-color: #8a3a4c;
+    transform: translateY(-2px);
+}
+
+/* Tạo kiểu cho thông báo lỗi, tương tự thông báo copy */
+.error-notification {
+    background-color: #9D4155; /* Dùng màu nhấn để báo lỗi */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Alegreya', sans-serif;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.error-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* Tạo kiểu cho thông báo thành công */
+.success-notification {
+    background-color: #a8cbbb; /* Dùng màu xanh lá cây hợp theme */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Alegreya', sans-serif;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.success-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Tạo kiểu cho thông báo thông tin (redirecting) */
+.info-notification {
+    background-color: #967e68; /* Dùng màu chữ chính */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Alegreya', sans-serif;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.info-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Tạo kiểu cho thông báo cảnh báo (spam click) */
+.warning-notification {
+    background-color: #e0a96d; /* Màu cam/vàng cảnh báo */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-family: 'Alegreya', sans-serif;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+.warning-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+.custom-audio-player {
+    width: 100%;
+    padding: 5px;
+    background-color: #E0C4C1;
+    border: 2px dashed #967e68;
+    border-radius: 8px;
+}
+
+.custom-audio-player .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.play-pause-btn, .volume-btn {
+    background: none;
+    border: none;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    padding: 0;
+    width: 16px;
+    height: 16px;
+}
+
+.play-pause-btn img, .volume-btn img {
+    width: 100%;
+    height: 100%;
+}
+
+.play-pause-btn .hidden {
+    display: none;
+}
+
+.progress-container {
+    flex-grow: 1;
+}
+
+.time-display {
+    font-family: 'Alegreya', sans-serif;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.progress-bar-wrapper {
+    background-image: url('/assets/line1.png');
+    background-repeat: repeat-x;
+    background-position: center;
+    height: 13px; 
+    width: 100%;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    position: relative;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.1s linear;
+}
+
+.progress-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0%; /* Vị trí ban đầu */
+    width: 18px;  /* Thu nhỏ kích thước */
+    height: 12px;
+    background-image: url('/assets/ribbon1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* Dịch chuyển thumb để tâm của nó nằm trên đường kẻ */
+    transform: translate(-50%, -50%); 
+    transition: left 0.1s linear;
+}
+
+.volume-container {
+    position: relative;
+}
+
+.volume-slider-container {
+    position: absolute;
+    bottom: 25px; /* Hiển thị thanh trượt phía trên nút âm lượng */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #E0C4C1;
+    border: 2px solid #967e68;
+    border-radius: 8px;
+    padding: 10px 5px;
+    display: none; /* Mặc định ẩn đi */
+}
+
+/* Khi di chuột qua container âm lượng, hiển thị thanh trượt */
+.volume-container:hover .volume-slider-container {
+    display: block;
+}
+
+.volume-slider {
+    -webkit-appearance: slider-vertical; /* Định hướng cho Chrome/Safari */
+    appearance: slider-vertical;
+    width: 8px;
+    height: 75px;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+}
+
+#theme-toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9998; /* Đặt dưới thông báo một chút */
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: url('/assets/cursor2b.gif'), pointer;
+    width: 26px; /* 16px icon + 10px padding */
+    height: 26px;
+}
+
+#theme-toggle-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* 2. Định nghĩa các màu sắc cho chế độ tối */
+/* Áp dụng các quy tắc này khi body có class 'dark-mode' */
+
+body.dark-mode {
+    background-color: #2c2828e3;
+    color: #d1c7bd;
+}
+
+body.dark-mode .sidebg,
+body.dark-mode .side,
+body.dark-mode .box {
+    background-image: none;
+    background-color: #3a3535ce;
+}
+
+body.dark-mode .box,
+body.dark-mode .side {
+    border-color: #d1c7bd;
+}
+
+body.dark-mode .left {
+    border-color: #d1c7bd;
+}
+
+body.dark-mode a {
+    color: #e86a8f; /* Làm màu link sáng hơn */
+}
+
+body.dark-mode a:visited {
+    color: #a8cbbb; /* Màu này vẫn ổn */
+}
+
+body.dark-mode .nav {
+    background-color: #2c2828; /* Dùng màu nền chính */
+}
+
+/* Dùng filter để đảo ngược màu các ảnh nền trang trí */
+body.dark-mode .right h3,
+body.dark-mode .right h2::before,
+body.dark-mode .progress-bar-wrapper,
+body.dark-mode .progress-thumb {
+    filter: invert(1) hue-rotate(180deg);
+    color: #796666;
+}
+
+body.dark-mode .custom-audio-player,
+body.dark-mode .volume-slider-container,
+body.dark-mode .guestbook input[type="text"],
+body.dark-mode .guestbook input[type="url"],
+body.dark-mode .guestbook textarea,
+body.dark-mode #diary-form input[type="password"] {
+    background-color: #3a3535;
+    color: #d1c7bd;
+    border-color: #d1c7bd;
+}
+
+body.dark-mode .guestbook ::placeholder {
+    color: #d1c7bd;
+    opacity: 0.5;
+}
+
+body.dark-mode .timezone {
+    background-color: #d1c7bd;
+    box-shadow: 0px 0px 5px rgb(174 65 85 / 50%);
+    border-radius: 5px;
+}
+
+body.dark-mode .desc p {
+    color: #2c2828;
 }

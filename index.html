@@ -12,11 +12,12 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div id="notification-container"></div>
         <div class="sidebg">
             <div class="side">
                 <!-- SIDEBAR AVATAR -->
                 <img class="avatar" src="/assets/melody.gif" alt="side avatar">
-                <img class="line" src="/assets/line1.png" alt="side line image">
+                <img class="line" src="/assets/divider6.gif" alt="side line image">
                 <!-- SIDEBAR DESCRIPTION -->
                 <div class="desc">
                     <p>A little pufferfish flounders in the heart of the ocean.</p>
@@ -29,6 +30,7 @@
                     <li><a href="/home.html" class="ajax-link">home</a></li>
                     <li><a href="/about.html" class="ajax-link">about</a></li>
                     <li><a href="/blog.html" class="ajax-link">blog</a></li>
+                    <li><a href="/diary.html" class="ajax-link">diary</a></li>
                     <li><a href="/links.html" class="ajax-link">links</a></li>
                     <li><a href="/a.html">gallery</a></li>
                     <li><a href="">resources</a></li>
@@ -38,6 +40,39 @@
                 </div>
                 <div class="timezone">
                     <iframe title="my time" src="https://free.timeanddate.com/clock/i9znpe0g/n218/fn8/fc7f244b/tct/pct/ts1/ta1" frameborder="0" width="150" height="17" allowtransparency="true"></iframe>
+                </div>
+                <div class="sideheaders">
+                    <h2 class="nav">music player</h2>
+                </div>
+                <div class="custom-audio-player">
+                    <!-- Trình phát gốc, bị ẩn đi nhưng vẫn làm nhiệm vụ phát nhạc -->
+                    <audio id="main-audio-player" loop>
+                        <source src="/assets/audio/Lilith.mp3" type="audio/mpeg">
+                        trình duyệt không hỗ trợ audio.
+                    </audio>
+
+                    <!-- Các nút điều khiển tùy chỉnh của chúng ta -->
+                    <div class="controls">
+                        <button class="play-pause-btn">
+                            <img src="/assets/icon-music.png" alt="Play" id="play-btn">
+                            <img src="/assets/icon-heart.png" alt="Pause" id="pause-btn" class="hidden">
+                        </button>
+                        <div class="progress-container">
+                            <div class="time-display">0:00 / 0:00</div>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar"></div>
+                                <div class="progress-thumb"></div>
+                            </div>
+                        </div>
+                        <div class="volume-container">
+                            <button class="volume-btn">
+                                <img src="/assets/icon-happy.png" alt="Volume">
+                            </button>
+                            <div class="volume-slider-container">
+                                <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.8" orient="vertical">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -58,12 +93,18 @@
             <img src="/assets/madebyagirl.png" alt="back to top">
         </a>
         <div id="credit">
-            <a href="https://repth.neocities.org/index.html">© repth</a>
+            <a href="https://repth.neocities.org/index.html">©repth</a>
         </div>
         <script defer src="scripts.js"></script>
+
+        <!-- THÊM NÚT CHUYỂN ĐỔI DARK MODE VÀO ĐÂY -->
+        <button id="theme-toggle-btn" title="toggle theme">
+            <img id="theme-toggle-icon" src="/assets/moon.gif" alt="Toggle theme icon">
+        </button>
+
         <footer>
             <div class="footer">
-                <p>© 2025</p>
+                <span class="recorder">© 2025</span>
                 <p>Made with ❤️ by Cherrybie</p>
             </div>
         </footer>

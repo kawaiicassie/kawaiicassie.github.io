@@ -1,0 +1,24 @@
+<script>
+    // Nếu trang này được tải trực tiếp (không có #main-content),
+    // hãy chuyển hướng về trang chủ với đường dẫn chính xác.
+    if (!window.top.document.getElementById('main-content')) {
+        window.top.location.href = `/?path=${window.location.pathname}`;
+    }
+</script>
+<!-- FORM NHẬP MẬT KHẨU -->
+<div id="diary-password-prompt" class="box">
+    <div class="left">
+        <img class="icon" src="/assets/avatar.gif" alt="avatar">
+        <p><img src="/assets/inline/shocked.gif" alt="shocked"></p>
+    </div>
+    <div class="right">
+        <h3>diary access</h3>
+        <p>This is a private space. Please enter the password to continue.</p>
+        <form id="diary-form">
+            <input type="password" id="diary-password-input" placeholder="password...">
+            <button type="submit">Unlock</button>
+        </form>
+    </div>
+</div>
+
+<div id="diary-content-placeholder"></div>
