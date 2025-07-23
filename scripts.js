@@ -227,6 +227,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     // --- KẾT THÚC: LOGIC CHO NHẬT KÝ ---
+
+    // --- BẮT ĐẦU: LOGIC KHỞI ĐỘNG LẠI GIF ---
+    function restartGifs() {
+        // Tìm tất cả các ảnh có đuôi .gif
+        const gifs = document.querySelectorAll('img[src$=".gif"]');
+        gifs.forEach(gif => {
+            // Gán lại src của ảnh để buộc trình duyệt tải lại và phát lại animation
+            const originalSrc = gif.src;
+            gif.src = ''; // Xóa src tạm thời
+            gif.src = originalSrc; // Gán lại src ban đầu
+        });
+    }
+    // --- KẾT THÚC: LOGIC KHỞI ĐỘNG LẠI GIF ---
+
     // --- BẮT ĐẦU: LOGIC HIỆU ỨNG ĐỘNG KHI CUỘN TRANG ---
     function setupScrollAnimations() {
         const animatedElements = document.querySelectorAll('.box');
@@ -409,6 +423,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 // SAU KHI NỘI DUNG MỚI ĐƯỢC THÊM, KÍCH HOẠT ANIMATION
                 setupScrollAnimations();
+                // KHỞI ĐỘNG LẠI GIFS ĐỂ TRÁNH LỖI TRÊN SAFARI MOBILE
+                restartGifs();
             }
 
             mainContent.style.opacity = '1';
@@ -471,14 +487,14 @@ document.addEventListener("DOMContentLoaded", function() {
     if (pathFromQuery) {
         // Nếu có tham số ?path=, tải nội dung từ đó và cập nhật URL
         history.replaceState(null, '', pathFromQuery); // Xóa ?path= khỏi URL
-        loadContent(pathFromQuery);
+        loadContent(pathFromQuery).then(() => restartGifs());
     } else {
         // Logic cũ: tải dựa trên pathname
         const initialPath = window.location.pathname;
         if (initialPath === '/' || initialPath.endsWith('/index.html')) {
-            loadContent('/home.html');
+            loadContent('/home.html').then(() => restartGifs());
         } else {
-            loadContent(initialPath);
+            loadContent(initialPath).then(() => restartGifs());
         }
     }
 
