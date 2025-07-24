@@ -510,7 +510,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const title = document.getElementById('post-title').value;
             const date = document.getElementById('post-date').value;
             const time = document.getElementById('post-time').value;
-            const icon = document.getElementById('post-icon').value;
             const filename = document.getElementById('post-filename').value;
             const summary = document.getElementById('post-summary').value;
             const content = document.getElementById('post-content').value;
@@ -519,7 +518,6 @@ document.addEventListener("DOMContentLoaded", function() {
             const outputForBlogPage = `<!-- POST START -->
 <div class="box">
     <div class="left">
-        <img class="icon" src="${icon}" alt="avatar">
         <p>${date}</p>
         <p><i>${time}</i></p>
     </div>
@@ -541,7 +539,6 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- POST START -->
 <div class="box">
     <div class="left">
-        <img class="icon" src="${icon}" alt="avatar">
         <p>${date}</p>
         <p><i>${time}</i></p>
     </div>

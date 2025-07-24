@@ -12,6 +12,7 @@ padding: 0;
     margin-bottom: 1rem;
     font-style: italic;
     color: #9D4155;
+    justify-content: center;
 }
 
 /* Table of Contents */
@@ -287,7 +288,7 @@ width: 80px;
 height: 80px;
 }
 
-.right{
+.right {
 padding: 1rem;
 flex-grow: 1;
 /* Thêm thuộc tính này để ngăn .right co lại nhỏ hơn nội dung của nó */
@@ -295,13 +296,35 @@ min-width: 0;
 overflow-x: hidden; /* Ngăn nội dung tràn theo chiều ngang */
 }
 
+/* Style mặc định cho ảnh nhỏ (stickers/icons) */
 .right img {
-max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của container */
-height: auto; /* Giữ tỷ lệ khung hình */
-display: block; /* Loại bỏ khoảng trống dưới ảnh */
-margin: 1rem 0; /* Thêm khoảng cách trên dưới */
-border-radius: 10px;
+    max-height: 1.5em; /* Giới hạn chiều cao bằng với chiều cao dòng chữ */
+    width: auto; /* Tự động điều chỉnh chiều rộng theo tỷ lệ */
+    display: inline-block; /* Cho phép ảnh hiển thị cùng dòng với text */
+    vertical-align: middle; /* Căn giữa ảnh với dòng chữ */
+    margin: 0 0.3em; /* Thêm khoảng cách nhỏ hai bên */
 }
+
+/* Style cho ảnh lớn/ảnh bìa - ghi đè style mặc định */
+.right img.feature-image {
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng của container */
+    max-height: none; /* Ghi đè max-height của ảnh nhỏ */
+    width: 100%; /* Lấp đầy chiều rộng container */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    display: block; /* Loại bỏ khoảng trống dưới ảnh */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    margin: 1rem 0; /* Thêm khoảng cách trên dưới */
+    border-radius: 10px;
+    opacity: 0.7;
+}
+
+.right img.feature-image:hover {
+    background-color: #8a3a4c;
+    transform: translateY(-2px);
+    opacity: 1;
+    box-shadow: 0 0 8px #9d415f59; /* Thêm hiệu ứng đổ bóng nhẹ */
+}
+
 .right h3 {
     /* 1. Áp dụng trực tiếp ảnh nền */
     background-image: url('/assets/h4.png');
@@ -328,7 +351,7 @@ border-radius: 10px;
     font-family: 'Love Ya Like A Sister', serif;
     font-weight: normal;
     font-size: 23px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 .right h2 {
     position: relative; /* 1. Tạo bối cảnh định vị cho pseudo-element */
@@ -337,7 +360,7 @@ border-radius: 10px;
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     min-height: 0;
-    padding-left: 3.4rem; /* 2. Đặt padding CỐ ĐỊNH */
+    padding-left: 3rem; /* 2. Đặt padding CỐ ĐỊNH */
 }
 /* Pseudo-element cho ảnh nền của H2 */
 .right h2::before {
@@ -1132,6 +1155,13 @@ body.dark-mode .desc p {
     color: #2c2828;
 }
 
+body.dark-mode .table-of-contents {
+    background: rgb(0 0 0 / 50%);
+}
+body.dark-mode .reading-time {
+    color: #d1c7bd;
+}
+
 /* --- BẮT ĐẦU: CSS CHO BLOG POST GENERATOR --- */
 
 #blog-generator-form {
@@ -1184,6 +1214,7 @@ body.dark-mode .desc p {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    color: transparent;
 }
 
 #blog-generator-form input[type="date"]::-webkit-calendar-picker-indicator,
@@ -1276,3 +1307,6 @@ body.dark-mode .desc p {
 }
 
 /* --- KẾT THÚC: CSS CHO BLOG POST GENERATOR --- */
+.art-video-player .icon {
+    border: none;
+}
