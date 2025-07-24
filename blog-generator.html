@@ -15,17 +15,23 @@
             <label for="post-title">Tiêu đề bài viết:</label>
             <input type="text" id="post-title" required placeholder="Bài viết đầu tiên">
 
-            <label for="post-date">Ngày đăng (DD/MM/YYYY):</label>
-            <input type="text" id="post-date" required placeholder="22/07/2025">
+            <label for="post-date">Ngày đăng:</label>
+            <div class="input-with-button">
+                <input type="text" id="post-date" required readonly>
+                <input type="date" id="date-picker" class="date-button">
+            </div>
 
-            <label for="post-time">Giờ đăng (HH:MM):</label>
-            <input type="text" id="post-time" required placeholder="13:00">
+            <label for="post-time">Giờ đăng:</label>
+            <div class="input-with-button">
+                <input type="text" id="post-time" required readonly>
+                <input type="time" id="time-picker" class="time-button">
+            </div>
 
             <label for="post-icon">URL Icon:</label>
             <input type="text" id="post-icon" value="/assets/doggu.gif" required>
 
-            <label for="post-filename">Tên tệp (không bao gồm .html):</label>
-            <input type="text" id="post-filename" required placeholder="22-07-2025-first-post">
+            <!-- Filename sẽ được tự động tạo từ tiêu đề -->
+            <input type="hidden" id="post-filename">
 
             <label for="post-summary">Tóm tắt (hiển thị trên trang blog chính):</label>
             <textarea id="post-summary" rows="3" required placeholder="Đây là tóm tắt ngắn..."></textarea>
@@ -44,7 +50,7 @@
                 <button class="copy-btn" data-target-id="output-for-blog-page" title="Sao chép mã">Copy</button>
                 <pre><code id="output-for-blog-page" class="language-html"></code></pre>
             </div>
-
+            <hr>
             <h4>Mã cho tệp bài viết mới (<code>/blogposts/<span id="output-filename"></span>.html</code>):</h4>
             <p>Tạo một tệp mới với tên ở trên và dán nội dung này vào.</p>
             <div class="code-container">

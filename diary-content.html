@@ -1,11 +1,18 @@
-<script>
-    // Nếu trang này được tải trực tiếp (không có #main-content),
-    // hãy chuyển hướng về trang chủ với đường dẫn chính xác.
-    if (!window.top.document.getElementById('main-content')) {
-        window.top.location.href = `/?path=${window.location.pathname}`;
-    }
-</script>
-<!-- Bố cục của nhật ký sẽ giống như blog.html, với mỗi bài là một .box -->
+<!-- POST START -->
+<div class="box">
+    <div class="left">
+        <img class="icon" src="/assets/doggu.gif" alt="avatar">
+        <p>24/07/2025</p>
+        <p><i>08:15</i></p>
+    </div>
+    <div class="right">
+        <h2>Testing ArtPlayer Video Library</h2>
+        <hr>
+        <p>This is a test post to demonstrate the integration of the ArtPlayer.js video player.</p>
+        <div class="artplayer-app" style="width: 100%; height: 400px; margin-top: 1rem;" data-url="/assets/audio/gasanca-exsh.mp4"></div>
+    </div>
+</div>
+<!-- POST END -->
 <div class="box">
     <div class="left">
         <img class="icon" src="/assets/doggu.gif" alt="avatar">
@@ -18,18 +25,3 @@
         <p>Today, I successfully created a password-protected diary for my website. It was a fun challenge to implement the logic for checking the password and saving the login state using localStorage. Now I have a private corner on my own site!</p>
     </div>
 </div>
-
-<!-- Bạn có thể thêm các bài nhật ký khác ở đây, mỗi bài là một <div class="box"> -->
-<!--
-<div class="box">
-    <div class="left">
-        <img class="icon" src="/assets/doggu.gif" alt="avatar">
-        <p>24/07/2025</p>
-    </div>
-    <div class="right">
-        <h2>Another Day</h2>
-        <hr>
-        <p>Some other thoughts...</p>
-    </div>
-</div>
--->

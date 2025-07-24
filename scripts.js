@@ -1,4 +1,127 @@
+import { initShortcuts } from './assets/js/shortcuts.js';
+
 document.addEventListener("DOMContentLoaded", function() {
+    // Blog Features Utils
+    const WORDS_PER_MINUTE = 200;
+    const MIN_HEADERS_FOR_TOC = 3;
+
+    function addReadingTime(content) {
+        const text = content.textContent;
+        const wordCount = text.trim().split(/\s+/).length;
+        const readingTime = Math.ceil(wordCount / WORDS_PER_MINUTE);
+
+        const timeElement = document.createElement('div');
+        timeElement.className = 'reading-time';
+        timeElement.innerHTML = `
+            <img src="/assets/icon-clock.png" alt="clock" style="width: 20px; height: 20px;">
+            <span>Thời gian đọc: ${readingTime} phút</span>
+        `;
+
+        content.insertBefore(timeElement, content.firstChild);
+    }
+
+    function slugify(text) {
+        return text.toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[đĐ]/g, 'd')
+            .replace(/[^a-z0-9-]/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-|-$/g, '');
+    }
+
+    function generateTocHTML(headers) {
+        let tocHTML = '<ul>';
+        let prevLevel = 3; // Bắt đầu từ h3
+        
+        headers.forEach(header => {
+            const level = parseInt(header.tagName[1]);
+            const text = header.textContent;
+            const slug = slugify(text);
+            
+            if (level > prevLevel) {
+                tocHTML += '<ul>'.repeat(level - prevLevel);
+            } else if (level < prevLevel) {
+                tocHTML += '</ul>'.repeat(prevLevel - level);
+            }
+
+            tocHTML += `
+                <li>
+                    <a href="#" data-scroll="${slug}" class="toc-scroll">
+                        ${text}
+                    </a>
+                </li>
+            `;
+            
+            prevLevel = level;
+        });
+        
+        tocHTML += '</ul>'.repeat(prevLevel - 3 + 1);
+        return tocHTML;
+    }
+
+    function addTableOfContents(content) {
+        const headers = content.querySelectorAll('h3, h4, h5');
+        if (headers.length < MIN_HEADERS_FOR_TOC) return;
+
+        // Thêm ID cho các heading
+        headers.forEach(header => {
+            if (!header.id) {
+                header.id = slugify(header.textContent);
+            }
+        });
+
+        const toc = document.createElement('div');
+        toc.className = 'table-of-contents';
+        toc.innerHTML = `
+            <h3>Mục lục <img src="/assets/inline/!2.gif" alt="!"></h3>
+            <nav class="toc-nav">
+                ${generateTocHTML(headers)}
+            </nav>
+        `;
+
+        content.insertBefore(toc, content.firstChild);
+    }
+
+    // Event listener cho các link trong TOC
+    document.addEventListener('click', (e) => {
+        const tocLink = e.target.closest('.toc-scroll');
+        if (!tocLink) return;
+            
+        e.preventDefault();
+        const targetId = tocLink.dataset.scroll;
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    function initBlogFeatures() {
+        const blogContent = document.querySelector('.blog-content');
+        if (!blogContent) return;
+
+        // Thêm thời gian đọc
+        addReadingTime(blogContent);
+        
+        // Tạo và thêm TOC
+        addTableOfContents(blogContent);
+        
+        // Kiểm tra và cuộn đến hash fragment sau khi nội dung được load
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                setTimeout(() => {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }
+    
+    
+    // Khởi tạo phím tắt
+    initShortcuts();
 
     // --- BẮT ĐẦU KHỐI MÃ TÁI CẤU TRÚC ---
     let lastDiscordData = null; // Biến để lưu trạng thái Discord cuối cùng
@@ -173,60 +296,136 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Hàm chính xử lý truy cập cập nhật ký
     function handleDiaryAccess() {
-        const passwordPrompt = document.getElementById('diary-password-prompt');
-        // Sửa lại để nhắm đến placeholder
-        const diaryPlaceholder = document.getElementById('diary-content-placeholder'); 
-        const diaryForm = document.getElementById('diary-form');
-        const passwordInput = document.getElementById('diary-password-input');
+        const diaryPlaceholder = document.getElementById('diary-content-placeholder');
+        if (!diaryPlaceholder) return; // Nếu không có placeholder, không thể làm gì
 
-        if (!passwordPrompt || !diaryPlaceholder || !diaryForm) return;
-
-        const DIARY_PASSWORD_HASH = '844faa366b96553031a1ea2674c62bc4788969d984a7be00ea34f02686604992';
         const isUnlocked = localStorage.getItem('diaryUnlocked') === 'true';
 
-        // --- VIẾT LẠI HOÀN TOÀN HÀM showDiary ---
         const showDiary = async () => {
             try {
-                // 1. Tải nội dung từ tệp riêng
                 const response = await fetch('/diary-content.html');
                 if (!response.ok) {
                     throw new Error('Không thể tải nội dung nhật ký.');
                 }
                 const diaryHtml = await response.text();
-
-                // 2. Chèn nội dung vào placeholder
+                // Thêm class 'boxgap' để áp dụng khoảng cách cho các bài đăng nhật ký
+                diaryPlaceholder.classList.add('boxgap');
                 diaryPlaceholder.innerHTML = diaryHtml;
 
-                // 3. Xóa form mật khẩu đi
-                passwordPrompt.remove();
+                
+                // Tìm và xóa form mật khẩu một cách an toàn
+                const passwordPrompt = document.getElementById('diary-password-prompt');
+                if (passwordPrompt) {
+                    passwordPrompt.remove();
+                }
+                
+                // QUAN TRỌNG: Kích hoạt lại animation cho nội dung nhật ký vừa tải
+                setupScrollAnimations();
+                setupArtPlayer(); // Khởi tạo ArtPlayer cho nội dung nhật ký
             } catch (error) {
                 console.error(error);
                 diaryPlaceholder.innerHTML = '<p>Lỗi: Không thể hiển thị nội dung nhật ký. Vui lòng thử lại.</p>';
             }
         };
 
+        // 1. KIỂM TRA TRẠNG THÁI ĐĂNG NHẬP TRƯỚC TIÊN
         if (isUnlocked) {
             showDiary();
-            return;
+            return; // Dừng hàm ở đây nếu đã đăng nhập
         }
 
-        diaryForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const enteredPassword = passwordInput.value;
-            const enteredPasswordHash = await sha256(enteredPassword);
+        // 2. NẾU CHƯA ĐĂNG NHẬP, MỚI TIẾP TỤC XỬ LÝ FORM
+        const passwordPrompt = document.getElementById('diary-password-prompt');
+        const diaryForm = document.getElementById('diary-form');
+        const passwordInput = document.getElementById('diary-password-input');
 
-            if (enteredPasswordHash === DIARY_PASSWORD_HASH) {
-                localStorage.setItem('diaryUnlocked', 'true');
-                showSuccessNotification('Mở khóa thành công!');
-                // Không cần setTimeout nữa, gọi trực tiếp
-                showDiary(); 
-            } else {
-                showErrorNotification('Mật khẩu không chính xác!');
-                passwordInput.value = '';
-            }
-        });
+        // Chỉ thiết lập listener nếu form tồn tại
+        if (diaryForm && passwordInput && passwordPrompt) {
+            diaryForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const enteredPassword = passwordInput.value;
+                const DIARY_PASSWORD_HASH = '844faa366b96553031a1ea2674c62bc4788969d984a7be00ea34f02686604992';
+                const enteredPasswordHash = await sha256(enteredPassword);
+
+                if (enteredPasswordHash === DIARY_PASSWORD_HASH) {
+                    localStorage.setItem('diaryUnlocked', 'true');
+                    showSuccessNotification('Mở khóa thành công!');
+                    showDiary(); 
+                } else {
+                    showErrorNotification('Mật khẩu không chính xác!');
+                    passwordInput.value = '';
+                }
+            });
+        }
     }
     // --- KẾT THÚC: LOGIC CHO NHẬT KÝ ---
+
+    // --- BẮT ĐẦU: LOGIC CHO APLAYER TRANG CHỦ ---
+    function setupHomePageAPlayer() {
+        const apContainer = document.getElementById('aplayer-home');
+        if (!apContainer) return; // Chỉ chạy nếu tìm thấy container
+
+        const ap = new APlayer({
+            container: apContainer,
+            lrcType: 3, // Cho biết chúng ta sẽ tải lyric từ file .lrc
+            audio: [{
+                name: 'Gã Săn Cá',
+                artist: 'Em Xinh Say Hi',
+                url: '/assets/audio/gasanca-exsh.mp4',
+                cover: '/assets/music-cat.gif',
+                lrc: '/assets/audio/gasanca-exsh.lrc'
+            }]
+        });
+    }
+    // --- KẾT THÚC: LOGIC CHO APLAYER TRANG CHỦ ---
+
+    let artPlayerInstance = null;
+    // --- BẮT ĐẦU: LOGIC CHO ARTPLAYER TRONG BLOG ---
+    function setupArtPlayer() {
+        const artContainer = document.querySelector('.artplayer-app');
+        if (!artContainer) return;
+        const videoUrl = artContainer.dataset.url;
+        if (!videoUrl) return;
+
+        if (artPlayerInstance) {
+            artPlayerInstance.destroy();
+            artPlayerInstance = null;
+            artContainer.classList.remove('artplayer-ready');
+        }
+
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        artPlayerInstance = new Artplayer({
+            container: artContainer,
+            url: videoUrl,
+            subtitle: {
+                url: '/assets/audio/gasanca-exsh.vtt',
+                type: 'vtt',
+                default: false, // Đặt mặc định là tắt phụ đề để người dùng tự bật
+                switch: true,   // Cho phép bật/tắt phụ đề trong setting
+                style: {
+                    color: '#fff',
+                    fontSize: '16px',
+                    bottom: '40px',
+                },
+            },
+            theme: isDarkMode ? '#9D4155' : '#967e68',
+                    quality: [
+                        { name: 'HD', url: videoUrl, html: 'HD' }
+                    ],
+            fullscreen: true,
+            screenshot: true,
+            pip: true,
+            miniProgressBar: true,
+            muted: false,
+            autoSize: false,
+            autoMini: false,
+            playbackRate: true,
+            hotkey: true,
+            setting: true,
+        });
+        artContainer.classList.add('artplayer-ready');
+    }
+    // --- KẾT THÚC: LOGIC CHO ARTPLAYER TRONG BLOG ---
 
     // --- BẮT ĐẦU: LOGIC KHỞI ĐỘNG LẠI GIF ---
     function restartGifs() {
@@ -274,6 +473,36 @@ document.addEventListener("DOMContentLoaded", function() {
         const form = document.getElementById('blog-generator-form');
         if (!form) return;
 
+        // Xử lý date picker
+        const datePicker = document.getElementById('date-picker');
+        const dateInput = document.getElementById('post-date');
+        
+        datePicker.addEventListener('change', (e) => {
+            const date = new Date(e.target.value);
+            const day = date.getDate().toString().padStart(2, '0');
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const year = date.getFullYear();
+            dateInput.value = `${day}/${month}/${year}`;
+        });
+
+        // Xử lý time picker
+        const timePicker = document.getElementById('time-picker');
+        const timeInput = document.getElementById('post-time');
+        
+        timePicker.addEventListener('change', (e) => {
+            timeInput.value = e.target.value;
+        });
+
+        // Xử lý tự động tạo filename từ tiêu đề
+        const titleInput = document.getElementById('post-title');
+        const filenameInput = document.getElementById('post-filename');
+        
+        titleInput.addEventListener('input', (e) => {
+            const date = dateInput.value ? dateInput.value.replace(/\//g, '-') : '';
+            const slug = slugify(e.target.value);
+            filenameInput.value = date ? `${date}-${slug}` : slug;
+        });
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
 
@@ -319,7 +548,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="right">
         <h2>${title}</h2>
         <hr>
+        <div class="blog-content">
         ${content}
+        </div>
         <br>
         <a href="/blog.html" class="ajax-link">&larr; quay lại</a>
     </div>
@@ -403,12 +634,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 // --- KẾT THÚC: LOGIC ĐẶT TIÊU ĐỀ NÂNG CAO ---
 
+                // Khởi tạo các tính năng blog cho nội dung mới
+                initBlogFeatures();
+
+                // Kiểm tra hash fragment sau khi tải nội dung
+                if (url.includes('#')) {
+                    const hash = url.split('#')[1];
+                    if (hash) {
+                        setTimeout(() => {
+                            const element = document.getElementById(hash);
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }, 100);
+                    }
+                }
+
                 // Gọi các hàm cập nhật dữ liệu cho trang chủ
                 if (url.includes('home.html')) {
                     fetchStatusCafeData();
                     if (lastDiscordData) {
                         updateDiscordUI(lastDiscordData);
                     }
+                    setupHomePageAPlayer(); // Khởi tạo APlayer
                 }
                 // THÊM ĐOẠN NÀY VÀO: Gọi hàm cập nhật trích dẫn khi trang about được tải
                 if (url.includes('about.html')) {
@@ -425,13 +673,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 setupScrollAnimations();
                 // KHỞI ĐỘNG LẠI GIFS ĐỂ TRÁNH LỖI TRÊN SAFARI MOBILE
                 restartGifs();
+                // KHỞI TẠO ARTPLAYER NẾU CÓ
+                setupArtPlayer();
             }
 
             mainContent.style.opacity = '1';
         } catch (error) {
             console.error('Lỗi khi tải nội dung:', error);
             mainContent.innerHTML = '<p>Lỗi: Không thể tải nội dung trang. Vui lòng kiểm tra lại đường dẫn hoặc kết nối mạng.</p>';
-            mainContent.style.opacity = '1';
         }
     };
 
